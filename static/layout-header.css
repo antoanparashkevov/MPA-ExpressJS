@@ -1,0 +1,23 @@
+/* Header and navigation menu */
+.main-nav {
+    /*TODO some styles*/
+}
+
+.nav-right {
+    text-align: right;
+}
+.main-nav ul {
+    list-style: none;
+    display: inline-block;
+}
+.main-nav li {
+    display: block;
+    float: left;
+}
+
+.main-nav a{
+    margin: 4px;
+    text-decoration: none;
+    padding: 4px 8px;
+    
+}
