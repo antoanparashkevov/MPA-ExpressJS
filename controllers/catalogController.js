@@ -1,14 +1,21 @@
-const {getAll} = require("../services/accomodationService");
+const {getAll, getById} = require("../services/accomodationService");
 const router = require('express').Router()
 
-const handler = (req,res)=>{
+router.get('/', (req,res)=>{
     const rooms = getAll()
     res.render('pages/catalog',{
         title: 'Catalog page',
         rooms
     })
-}
+})
 
-router.get('/', handler)
+router.get('/:id',(req,res)=>{
+    const id = req.params.id;
+    const room = getById(id);
+    res.render('pages/details',{
+        title: 'Details for' + room.name,
+        room
+    })
+})
 
 module.exports = router
