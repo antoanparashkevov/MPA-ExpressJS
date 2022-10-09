@@ -12,10 +12,18 @@ router.get('/', (req,res)=>{
 router.get('/:id',(req,res)=>{
     const id = req.params.id;
     const room = getById(id);
-    res.render('pages/details',{
-        title: 'Details for' + room.name,
-        room
-    })
+    if(room){
+        res.render('pages/details',{
+            title: 'Details for ' + room.name,
+            room
+        })
+    }else {
+        res.render('pages/pageNotFound',{
+            title: `Code ${id} not found`,
+            id
+        })
+    }
+   
 })
 
 module.exports = router
