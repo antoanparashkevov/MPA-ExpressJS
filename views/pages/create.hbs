@@ -1,5 +1,12 @@
 <section>
     <h1>New Accommodation</h1>
+    {{#if error}}
+    <div>
+        {{#each error}}
+            {{this}}
+        {{/each}}
+    </div>
+    {{else}}
     <form action="/create" method="post">
         <div>
             <label for="name">
@@ -39,4 +46,5 @@
         </div>
         <button>Create</button>
     </form>
+    {{/if}}
 </section>

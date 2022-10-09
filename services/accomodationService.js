@@ -36,6 +36,10 @@ async function create(roomData){
         imgURL: roomData.img,
         beds: +roomData.beds
     }
+    const missing = Object.entries(room).filter(prop=>!prop[1])
+    if(missing.length > 0){
+        throw new Error(missing.map(entry=> `${entry[0]} is required`).join('\n'))
+    }
     data.push(room)
     await persist();
     return room;

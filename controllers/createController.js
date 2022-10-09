@@ -12,10 +12,11 @@ const postHandler = async (req,res)=>{
        const result =  await create(formData)
         res.status(201).redirect('/catalog/' + result.id)
     }catch (err){
+        //TODO error conditional statement in the view.
+        console.log(err.message.split('\n'))
         res.render('pages/create',{
             title: 'Request error',
-            error: err.message
-            
+            error: err.message.split('\n'),
         })
     }
 }
