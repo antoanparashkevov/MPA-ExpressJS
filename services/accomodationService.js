@@ -25,6 +25,10 @@ function getById(id){
     return data.find(i=>i.id === id)
 }
 
+function getByQuery(query){
+    return data.filter(obj=>obj.name.toLowerCase().includes(query.toLowerCase()))
+}
+
 async function create(roomData){
     const id = (Math.random() * 9999 | 0).toString().slice(-4);
     const room = {
@@ -48,5 +52,6 @@ async function create(roomData){
 module.exports = {
     getAll,
     getById,
-    create
+    create,
+    getByQuery
 }

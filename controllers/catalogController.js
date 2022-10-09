@@ -1,8 +1,15 @@
-const {getAll, getById} = require("../services/accomodationService");
+const {getAll, getById, getByQuery} = require("../services/accomodationService");
 const router = require('express').Router()
 
 router.get('/', (req,res)=>{
-    const rooms = getAll()
+    //declared but not defined -> undefined type
+    let rooms;
+    const searchParam = req.query.search;
+    if(searchParam) {
+        rooms = getByQuery(searchParam)
+    }else{
+        rooms = getAll()
+    }
     res.render('pages/catalog',{
         title: 'Catalog page',
         rooms
