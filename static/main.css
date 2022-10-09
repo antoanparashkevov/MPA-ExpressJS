@@ -1,0 +1,27 @@
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+#page-content {
+    position: relative;
+    max-width: 980px;
+    margin: auto;
+    min-height: 100vh;
+}
+
+#page-content>header {
+/*    TODO some styles*/
+}
+
+#page-content>main {
+    padding-bottom: 48px;
+}
+
+#page-content>footer {
+/*    TODO some styles*/
+}
