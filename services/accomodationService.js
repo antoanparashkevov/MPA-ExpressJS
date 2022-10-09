@@ -4,7 +4,7 @@ const path = './models/data.json'
 const data = JSON.parse(fs.readFileSync(path))
 
 function executor(res,rej) {
-    fs.writeFile(path,JSON.stringify(data), err =>{
+    fs.writeFile(path,JSON.stringify(data, null, 2), err =>{
         if(err === null){
             res();
         }else{

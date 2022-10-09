@@ -1,1 +1,20 @@
-[{"id":"1234","location":"Sofia","name":"Room","price":120,"description":"Nice and cozy","imgURL":"/static/img/room1.jpeg","beds":2},{"id":"802","location":"asd","name":"asd","price":1,"description":"asd","imgURL":"asd","beds":1},{"id":"3649","location":"Pleven","name":"room","price":123,"description":"asdasd","imgURL":"11","beds":123}]
+[
+  {
+    "id": "1234",
+    "location": "Sofia",
+    "name": "Room",
+    "price": 120,
+    "description": "Nice and cozy",
+    "imgURL": "/static/img/room1.jpeg",
+    "beds": 2
+  },
+  {
+    "id": "4923",
+    "location": "12",
+    "name": "a",
+    "price": 12,
+    "description": "1",
+    "imgURL": "12",
+    "beds": 12
+  }
+]
