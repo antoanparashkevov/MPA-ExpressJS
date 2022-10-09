@@ -1,15 +1,23 @@
 const router = require('express').Router()
+const {create} = require('../services/accomodationService')
 
 const getHandler = (req,res)=>{
     res.render('pages/create',{
         title:'Create page'
     })
 }
-const postHandler = (req,res)=>{
-    console.log('Handling POST request...')
+const postHandler = async (req,res)=>{
     const formData = req.body;
-    console.log(formData)
-    res.status(201).redirect('/catalog')
+    try{
+       const result =  await create(formData)
+        res.status(201).redirect('/catalog/' + result.id)
+    }catch (err){
+        res.render('pages/create',{
+            title: 'Request error',
+            error: err.message
+            
+        })
+    }
 }
 
 router.get('/',getHandler)
