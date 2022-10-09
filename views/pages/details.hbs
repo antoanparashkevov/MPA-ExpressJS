@@ -1,5 +1,12 @@
 <section>
     {{#with room}}
-        {{name}}
+        <h1>{{name}} - Details</h1>
+        <main>
+            <div>
+                <img src="{{imgURL}}" alt="">
+            </div>
+            <p>{{description}}</p>
+            <p><strong>Price per night: BGN {{price}}</strong></p>
+        </main>
     {{/with}}
 </section>
