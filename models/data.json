@@ -5,7 +5,7 @@
     "name": "Room",
     "price": 120,
     "description": "Nice and cozy",
-    "imgURL": "static/img/room1.jpg",
+    "imgURL": "/static/img/room1.jpeg",
     "beds": 2
   }
 ]
