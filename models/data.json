@@ -1,3 +1,11 @@
 [
-  {}
+  {
+    "id": "1234",
+    "location": "Sofia",
+    "name": "Room",
+    "price": 120,
+    "description": "Nice and cozy",
+    "imgURL": "static/img/room1.jpg",
+    "beds": 2
+  }
 ]
