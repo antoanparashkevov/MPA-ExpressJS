@@ -1,1 +1,42 @@
-<h2>Create page</h2>
+<section>
+    <h1>New Accommodation</h1>
+    <form action="/create" method="post">
+        <div>
+            <label for="name">
+                <span>Name</span>
+                <input type="text" name="name">
+            </label>
+        </div> 
+        <div>
+            <label for="desc">
+                <span>Description</span>
+                <textarea rows="5" name="desc"></textarea>
+            </label>
+        </div> 
+        <div>
+            <label for="location">
+                <span>Location</span>
+                <input type="text" name="location">
+            </label>
+        </div>
+        <div>
+            <label for="price">
+                <span>Price</span>
+                <input type="number" name="price">
+            </label>
+        </div>
+        <div>
+            <label for="beds">
+                <span>Beds</span>
+                <input type="number" name="beds">
+            </label>
+        </div>
+        <div>
+            <label for="img">
+                <span>Image</span>
+                <input type="url" name="img">
+            </label>
+        </div>
+        <button>Create</button>
+    </form>
+</section>
