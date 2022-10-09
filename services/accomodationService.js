@@ -17,16 +17,16 @@ async function persist(){
     return new Promise(executor)
 }
 
-function getAll(){
-    return data;
+function getAll(queries){
+    const search = queries.name.toLowerCase()
+    return data
+        .filter(room=>room.name.toLowerCase().includes(search) || room.description.includes(search))
+        .filter(room=>room.price >= queries.fromPrice && room.price <= queries.toPrice)
+        .filter(room=>room.location.toLowerCase().includes(queries.location.toLowerCase()))
 }
 
 function getById(id){
     return data.find(i=>i.id === id)
-}
-
-function getByQuery(query){
-    return data.filter(obj=>obj.name.toLowerCase().includes(query.toLowerCase()))
 }
 
 async function create(roomData){
@@ -53,5 +53,5 @@ module.exports = {
     getAll,
     getById,
     create,
-    getByQuery
+    
 }

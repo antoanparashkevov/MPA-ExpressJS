@@ -1,19 +1,23 @@
-const {getAll, getById, getByQuery} = require("../services/accomodationService");
+const {getAll, getById} = require("../services/accomodationService");
 const router = require('express').Router()
 
 router.get('/', (req,res)=>{
-    //declared but not defined -> undefined type
-    let rooms;
-    const searchParam = req.query.search;
-    if(searchParam) {
-        rooms = getByQuery(searchParam)
-    }else{
-        rooms = getAll()
+    const objQueries = {
+        name: req.query.name || '',
+        location: req.query.location || '',
+        fromPrice:+req.query.fromPrice || 1,
+        toPrice: +req.query.toPrice || 1000
+        
     }
+    const rooms = getAll(objQueries);
+    
     res.render('pages/catalog',{
         title: 'Catalog page',
         rooms,
-        search: searchParam ? searchParam : ''
+        name:objQueries.name,
+        location:objQueries.location,
+        fromPrice:objQueries.fromPrice,
+        toPrice:objQueries.toPrice,
     })
 })
 

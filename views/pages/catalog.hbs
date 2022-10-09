@@ -4,7 +4,10 @@
         <p>Search</p>
         <div>
             <form action="/catalog" method="get">
-                <input type="text" placeholder="Search" name="search" value="{{search}}">
+                <input type="text" placeholder="Name" name="name" value="{{name}}">
+                <input type="text" placeholder="Location" name="location" value="{{location}}">
+                <input type="number" placeholder="From Price" name="fromPrice" value="{{fromPrice}}">
+                <input type="number" placeholder="To Price" name="toPrice" value="{{toPrice}}">
                 <input type="submit" value="Search">
             </form>
         </div>
