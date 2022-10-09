@@ -12,7 +12,8 @@ router.get('/', (req,res)=>{
     }
     res.render('pages/catalog',{
         title: 'Catalog page',
-        rooms
+        rooms,
+        search: searchParam ? searchParam : ''
     })
 })
 
