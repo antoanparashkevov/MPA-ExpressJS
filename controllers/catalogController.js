@@ -1,7 +1,8 @@
 const {getAll, getById} = require("../services/accomodationService");
+const roomService = require("../services/roomService")
 const router = require('express').Router()
 
-router.get('/', (req,res)=>{
+router.get('/', async (req,res)=>{
     const objQueries = {
         name: req.query.name || '',
         location: req.query.location || '',
@@ -10,10 +11,10 @@ router.get('/', (req,res)=>{
         
     }
     const rooms = getAll(objQueries);
-    
+    const roomsFromDB = await roomService.getAll()
     res.render('pages/catalog',{
         title: 'Catalog page',
-        rooms,
+        roomsFromDB,
         name:objQueries.name,
         location:objQueries.location,
         fromPrice:objQueries.fromPrice,
