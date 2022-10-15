@@ -4,8 +4,8 @@ const getAll =  () => {
       return Room.find({}).lean()
 }
 
-const getById = async (id)=>{
-    await Room.findById(id)
+const getById =  (id)=>{
+    return Room.findById(id).lean()
 }
 
 module.exports = {
