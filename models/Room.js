@@ -6,7 +6,7 @@ const roomSchema = new Schema({
     name: {type: String, default: '', required: true},  
     price: {type: Number, min: 0.01, required: true},
     description: {type: String, default: '', required: true},
-    imgURL: {type: String, default: '', required: true},
+    imgURL: {type: String, default: ''},
     beds:{type: Number, min: 1, required: true},
 })
 

@@ -9,9 +9,9 @@ module.exports = async (app) =>{
             useNewUrlParser: true
         })
         console.log('connected successfully to the database')
-    }
-    catch(error) {
+    } catch(error) {
         console.error(error.message)
+        process.exit(1)
     }
     
 }

@@ -9,7 +9,7 @@ module.exports = (app)=>{
     app.set('view engine', '.hbs')
 
 //global middlewares
-    app.use(express.urlencoded({extended:false}))
+    app.use(express.urlencoded({extended:true}))
     app.use('/static',express.static('static'))
     app.use(titleMiddleware('Accommodations'))
 } 

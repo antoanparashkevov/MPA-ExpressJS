@@ -4,12 +4,12 @@ const expressConfiguration = require('./config/expressConfiguration')
 const databaseConnection = require('./config/databaseConfiguration')
 const port = 8000;
 
-const app = express()
-start()
 async function start(){
-    routesConfiguration(app)
+    const app = express();
     expressConfiguration(app)
+    routesConfiguration(app)
     await databaseConnection(app);
+    app.listen(port,()=>console.log(`App listening on port ${port}...`))
 }
 
-app.listen(port,()=>console.log(`App listening on port ${port}...`))
+start();
