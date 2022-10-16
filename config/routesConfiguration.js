@@ -3,6 +3,7 @@ const homeController = require('../controllers/homeController')
 const catalogController = require('../controllers/catalogController')
 const createController = require('../controllers/createController')
 const aboutController = require('../controllers/aboutController')
+const facilityController = require('../controllers/facilityController')
 const defaultController = require('../controllers/defaultController')
 
 module.exports = (app) =>{
@@ -10,5 +11,6 @@ module.exports = (app) =>{
     app.use('/catalog',catalogController);
     app.use('/create',createController);
     app.use('/about',aboutController);
+    app.use('/facility',facilityController);
     app.all('/*',defaultController)
 }
