@@ -1,3 +1,4 @@
+const {createFacility} = require("../services/facilityService");
 const router = require('express').Router()
 
 router.get('/create',  (req,res)=>{
@@ -8,7 +9,13 @@ router.get('/create',  (req,res)=>{
 })
 
 router.post('/create', async(req,res)=>{
-    console.log(req.body)
+    const formData = req.body
+    try{
+        await createFacility(formData.label,formData.icon);
+        res.status(201).redirect('/catalog')
+    }catch (error) {
+        throw new Error(error.message)
+    }
 })
 
 module.exports = router;

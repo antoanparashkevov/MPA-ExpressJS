@@ -1,0 +1,26 @@
+<section>
+    <h1>New Facility</h1>
+    {{#if error}}
+        <div>
+            {{#each error}}
+                {{this}}
+            {{/each}}
+        </div>
+    {{else}}
+        <form action="/facility/create" method="post">
+            <div>
+                <label for="label">
+                    <span>Label</span>
+                    <input type="text" name="label">
+                </label>
+            </div>
+            <div>
+                <label for="icon">
+                    <span>Icon Url</span>
+                    <input type="text" name="icon">
+                </label>
+            </div>
+            <button>Create</button>
+        </form>
+    {{/if}}
+</section>
