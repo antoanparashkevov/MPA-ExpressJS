@@ -23,6 +23,11 @@ router.get('/:roomId/decorateRoom', async (req, res)=> {
     const roomId = req.params.roomId;
     const room = await getById(roomId);
     const facilities = await getAllFacilities();
+    facilities.forEach(f=>{
+        if(room.facilities.some(fObj=>fObj._id.toString() === f._id.toString())) {
+            f.checked = true
+        }
+    })
     res.render('pages/decorate', {
         title: 'Add facility',
         room,
