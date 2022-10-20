@@ -1,4 +1,4 @@
-const {createFacility, getAllFacilities} = require("../services/facilityService");
+const {createFacility, getAllFacilities, addFacilities} = require("../services/facilityService");
 const {getById} = require("../services/roomService");
 const router = require('express').Router()
 
@@ -22,13 +22,21 @@ router.post('/create', async(req,res)=>{
 router.get('/:roomId/decorateRoom', async (req, res)=> {
     const roomId = req.params.roomId;
     const room = await getById(roomId);
-    console.log(room)
     const facilities = await getAllFacilities();
     res.render('pages/decorate', {
         title: 'Add facility',
         room,
         facilities
     })
+})
+
+router.post('/:roomId/decorateRoom', async (req, res)=>{
+    const roomId = req.params.roomId;
+    const facilityIds = Object.keys(req.body)
+    
+    await addFacilities(roomId, facilityIds)
+    
+    res.redirect(`/facility/${roomId}/decorateRoom`)
 })
 
 module.exports = router;
