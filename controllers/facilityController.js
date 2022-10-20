@@ -1,4 +1,5 @@
-const {createFacility} = require("../services/facilityService");
+const {createFacility, getAllFacilities} = require("../services/facilityService");
+const {getById} = require("../services/roomService");
 const router = require('express').Router()
 
 router.get('/create',  (req,res)=>{
@@ -16,6 +17,18 @@ router.post('/create', async(req,res)=>{
     }catch (error) {
         throw new Error(error.message)
     }
+})
+
+router.get('/:roomId/decorateRoom', async (req, res)=> {
+    const roomId = req.params.roomId;
+    const room = await getById(roomId);
+    console.log(room)
+    const facilities = await getAllFacilities();
+    res.render('pages/decorate', {
+        title: 'Add facility',
+        room,
+        facilities
+    })
 })
 
 module.exports = router;

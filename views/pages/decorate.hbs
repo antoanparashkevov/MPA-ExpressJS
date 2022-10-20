@@ -5,11 +5,14 @@
             <div>
                 <img src="{{imgURL}}" alt="">
             </div>
-            <p>{{description}}</p>
-            <p><strong>Price per night: BGN {{price}}</strong></p>
             <div>
-                <a href="/facility/{{_id}}/decorateRoom">Edit</a>
+    {{/with}}
+                <h1>Facilities: </h1>
+                {{#each facilities}}
+                    <ul>
+                        <li>{{label}}</li>
+                    </ul>
+                {{/each}}
             </div>
         </main>
-    {{/with}}
 </section>
