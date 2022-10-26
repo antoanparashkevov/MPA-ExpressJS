@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {login} = require("../services/authService");
+const {login, register} = require("../services/authService");
 
 router.get('/login', (req,res)=>{
     res.render('pages/login', {
@@ -10,8 +10,7 @@ router.get('/login', (req,res)=>{
 router.post('/login',async (req,res)=>{
     const formData = req.body;
     const result = await login(formData.username, formData.password)//from the resolve function
-    const token = req.signJwt(result)
-    res.cookie('jwt',token)
+    attachToken (req,res,result)
     res.redirect('/')
 })
 
@@ -22,8 +21,16 @@ router.get('/register', (req,res)=>{
 })
 
 router.post('/register',async (req,res)=>{
-    //to do 
+    const formData = req.body;
+    const result = await register(formData.username, formData.register);
+    attachToken (req,res,result)
+    res.redirect('/')
 })
+
+function attachToken(req,res,data) {
+    const token = req.signJwt(data);
+    res.cookie('jwt',token, {maxAge: 14400000})//4 hours in milliseconds
+}
 
 
 module.exports = router;
