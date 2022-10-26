@@ -1,3 +1,10 @@
+const bcrypt = require('bcrypt')
+const User = require('../models/User')
+
+async function register() {
+    
+}
+
 async function login(username, password) { 
     return new Promise((res,rej) =>{
         if(username.toLowerCase() === 'peter' && password === '123456') {
@@ -13,5 +20,6 @@ async function login(username, password) {
 }
 
 module.exports = {
-    login
+    login,
+    register
 }
