@@ -3,7 +3,7 @@ const User = require('../models/User')
 
 async function register(username, password) {
     //will return undefined (falsy value), or the record 
-    const existing = User.findOne({
+    const existing = await User.findOne({
         username: {
             $regex: new RegExp(username),
             $options: 'i'//case insensitive
@@ -27,7 +27,7 @@ async function register(username, password) {
 }
 
 async function login(username, password) { 
-    const user = User.findOne({
+    const user = await User.findOne({
         username: {
             $regex: new RegExp(username),
             $options: 'i'
