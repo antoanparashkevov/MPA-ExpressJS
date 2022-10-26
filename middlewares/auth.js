@@ -10,9 +10,13 @@ module.exports = (secret) => (req,res,next) => {
             res.json(data)
         } catch (err) {
             res.cookie('jwt', '', {maxAge: 0})
-            return res.redirect('/login')
+            return res.redirect('/auth/login')
         }
     }
+    
+    req.signJwt = (data) => jwt.sign(data,secret, {
+        expiresIn: '1h'
+    })
     
     next();
 }
