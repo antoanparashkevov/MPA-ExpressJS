@@ -9,25 +9,25 @@ router.get('/obtain',(req,res)=>{
         name: 'John',
         roles: ['user']
     }
-   const token =  jwt.sign(payload,secret)
+   const token =  jwt.sign(payload,secret, {expiresIn: '10s'})
     res.cookie('jwt',token)
     res.send('Json Web Token was created successfully!')
 })
 
 
 router.get('/validate', (req,res)=>{
-    const token = req.cookies.jwt
-    if(token) {
-        try {
-           const data =  jwt.verify(token,secret)
-            res.json(data)  
-        } catch (err) {
-            res.cookie('jwt', '', {maxAge: 0})
-            res.redirect('/login')  
-        }
-    } else { 
-        res.send('Missing token')
-    }
+    // const token = req.cookies.jwt
+    // if(token) {
+    //     try {
+    //        const data =  jwt.verify(token,secret)
+    //         res.json(data)  
+    //     } catch (err) {
+    //         res.cookie('jwt', '', {maxAge: 0})
+    //         res.redirect('/login')  
+    //     }
+    // } else { 
+    //     res.send('Missing token')
+    // }
 })
 
 module.exports = router;
