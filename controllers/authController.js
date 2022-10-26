@@ -21,10 +21,24 @@ router.get('/register', (req,res)=>{
 })
 
 router.post('/register',async (req,res)=>{
-    const formData = req.body;
-    const result = await register(formData.username, formData.register);
-    attachToken (req,res,result)
-    res.redirect('/')
+    try {
+        const formData = req.body;
+        if(formData.username.trim === '' && formData.password === '') {
+            throw new Error('All fields are required!')
+        }
+        
+        if(formData.password.trim() !== formData.repass.trim()) {
+            throw new Error("Passwords don't match!")
+        }
+        const result = await register(formData.username, formData.register);
+        attachToken(req, res, result)
+        res.redirect('/')
+    }catch (err) {
+        res.render('pages/register', {
+            title: 'Register',
+            error: err.message.split('\n')
+        })
+    }
 })
 
 function attachToken(req,res,data) {
