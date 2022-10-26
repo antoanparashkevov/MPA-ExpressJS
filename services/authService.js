@@ -27,17 +27,22 @@ async function register(username, password) {
 }
 
 async function login(username, password) { 
-    return new Promise((res,rej) =>{
-        if(username.toLowerCase() === 'peter' && password === '123456') {
-            res({
-                _id:'12345a',
-                username: 'Peter',
-                roles: ['user']
-            })
-        } else {
-            rej(new Error('Incorrect username and password'))
+    const user = User.findOne({
+        username: {
+            $regex: new RegExp(username),
+            $options: 'i'
         }
+    
     })
+    const matchPass = await bcrypt.compare(password,user.hashedPassword)
+    if(!user || !matchPass) {
+
+        throw new Error('Incorrect username or password')
+    }
+    return {
+        username: user.username,
+        roles: user.roles
+    }
 }
 
 module.exports = {
