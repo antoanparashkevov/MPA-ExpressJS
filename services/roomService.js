@@ -8,14 +8,15 @@ const getById =  (id)=>{
     //lean extracts only the values, not methods or virtual properties just for security (express-handlebars error)
     return Room.findById(id).lean()
 }
-const create =  (data) => {
+const create =  (data,ownerId) => {
     const room = {
         name: data.name,
         description: data.desc,
         location: data.location,
         price: data.price,
         beds: data.beds,
-        imgURL: data.img
+        imgURL: data.img,
+        ownerId: ownerId
     }
     
     const missing = Object.entries(room).filter(([k,v])=> !v);

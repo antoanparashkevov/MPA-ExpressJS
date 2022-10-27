@@ -10,7 +10,7 @@ const getHandler = (req,res)=>{
 const postHandler = async (req,res)=>{
     const formData = req.body;
     try{
-       const result =  await create(formData)
+       const result =  await create(formData, req.user._id)
         res.status(201).redirect('/catalog/' + result._id)
     }catch (err){
         //TODO error conditional statement in the view.
