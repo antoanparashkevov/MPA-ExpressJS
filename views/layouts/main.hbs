@@ -10,6 +10,11 @@
 <body>
 <div id="page-content">
     <header>
+        {{#if hasUser}}
+        <div>
+          Welcome,  {{username}}
+        </div>
+        {{/if}}
         <nav class="main-nav nav-right">
             <ul>
                 {{#if hasUser}}

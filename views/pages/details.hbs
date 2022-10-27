@@ -7,9 +7,11 @@
             </div>
             <p>{{description}}</p>
             <p><strong>Price per night: BGN {{price}}</strong></p>
+            {{#if isOwner}}
             <div>
                 <a href="/facility/{{_id}}/decorateRoom">Edit</a>
             </div>
+            {{/if}}
         </main>
     {{/with}}
 </section>
