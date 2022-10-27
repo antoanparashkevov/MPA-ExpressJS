@@ -12,12 +12,15 @@
     <header>
         <nav class="main-nav nav-right">
             <ul>
-                <li><a href="/catalog">Catalog</a></li>
+                {{#if hasUser}}
+                <li><a href="/catalog">Browse Accomodations</a></li>
                 <li><a href="/create">Host</a></li>
+                {{else}}
                 <li><a href="/about">About</a></li>
                 <li><a href="/facility/create">Create facility</a></li>
                 <li><a href="/auth/login">Login</a></li>
                 <li><a href="/auth/register">Register</a></li>
+                {{/if}}
             </ul>
         </nav>
     </header>
