@@ -6,8 +6,7 @@ router.get('/:id/edit', async (req, res) => {
     const roomId = req.params.id;
     const room = await getById(roomId);
     
-    
-    if(!req.user || (room.owner !== req.user._id)) {
+    if(!req.user || (room.owner.toString() !== req.user._id)) {
         return res.redirect('/auth/login')    
     }
     
@@ -20,9 +19,10 @@ router.get('/:id/edit', async (req, res) => {
 router.post('/:id/edit', async (req,res) => {
     const roomId = req.params.id;
     const roomData = req.body;
-    const room = getById(roomId)
-    
-    if(!req.user || (room.owner !== req.user._id)) {
+    console.log('formData', roomData)
+    const room = await getById(roomId)
+    console.log('room',room)
+    if(!req.user || (room.owner.toString() !== req.user._id)) {
         return res.redirect('/auth/login')
     }
     
@@ -36,7 +36,10 @@ router.post('/:id/edit', async (req,res) => {
         res.render('pages/edit',{
             title: 'Update error',
             error: err.message.split('\n'),
-            room: req.body
+            room: {
+                ...req.body,
+                imgURL: req.body.imgUrl
+            }
         })
     }
     

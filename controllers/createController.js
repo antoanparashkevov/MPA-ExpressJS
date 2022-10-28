@@ -1,15 +1,15 @@
 const router = require('express').Router()
 // const {create} = require('../services/accomodationService')
 const {create} = require('../services/roomService')
+const {hasRole} = require("../middlewares/guards");
 
-router.get('/',(req,res)=>{
+router.get('/',hasRole('admin'), (req,res)=>{
     res.render('pages/create',{
         title:'Create page'
     })
 })
-router.post('/',async (req,res)=>{
+router.post('/',hasRole('admin'), async (req,res)=>{
     const formData = req.body;
-    console.log(req.user)
     try{
         const result =  await create(formData, req.user._id)
         res.redirect('/catalog/' + result._id)

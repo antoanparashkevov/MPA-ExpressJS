@@ -24,7 +24,12 @@
                 <div>
                     <label for="desc">
                         <span>Description</span>
-                        <textarea rows="5" name="desc">{{description}}</textarea>
+                        <textarea 
+                            rows="5" name="desc"
+                            disabled
+                        >
+                            {{description}}
+                        </textarea>
                     </label>
                 </div>
                 <div>
@@ -61,11 +66,11 @@
                     </label>
                 </div>
                 <div>
-                    <label for="imgURL">
+                    <label for="imgUrl">
                         <span>Image</span>
                         <input
                                 type="text"
-                                name="imgURL"
+                                name="imgUrl"
                                 value="{{imgURL}}"
                                 disabled
                         >

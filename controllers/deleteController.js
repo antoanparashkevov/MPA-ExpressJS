@@ -5,7 +5,7 @@ router.get('/:id/delete', async (req, res) => {
     const roomId = req.params.id;
     const room = await getById(roomId)
 
-    if(!req.user || (room.owner !== req.user._id)) {
+    if(!req.user || (room.owner.toString() !== req.user._id)) {
         return res.redirect('/auth/login')
     }
     
@@ -19,7 +19,7 @@ router.post('/:id/delete', async (req, res) => {
     const roomId = req.params.id;
     const room = await getById(roomId)
 
-    if(!req.user || (room.owner !== req.user._id)) {
+    if(!req.user || (room.owner.toString() !== req.user._id)) {
         return res.redirect('/auth/login')
     }
 
@@ -33,7 +33,10 @@ router.post('/:id/delete', async (req, res) => {
         res.render('pages/delete',{
             title: 'Delete error',
             error: err.message.split('\n'),
-            room: req.body
+            room: {
+                ...req.body,
+                imgURL: req.body.imgUrl
+            }
         })
     }
     

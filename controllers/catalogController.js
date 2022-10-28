@@ -29,7 +29,6 @@ router.get('/', async (req,res)=>{
 router.get('/:id',async (req,res)=>{
     const id = req.params.id;
     const room = await getById(id); 
-    console.log(room)
     
     if(req.user && req.user._id == room.owner) {
         room.isOwner = true

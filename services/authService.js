@@ -16,7 +16,6 @@ async function register(username, password) {
         username,
         hashedPassword
     })
-    console.log('Registered person', userData)
     return {
         _id: userData._id,
         username,
@@ -26,7 +25,6 @@ async function register(username, password) {
 
 async function login(username, password) { 
     const user = await User.findOne({username}).collation({locale: 'en', strength: 2})
-    console.log(user)
     if(!user) {
         throw new Error('Incorrect username or password')
     }

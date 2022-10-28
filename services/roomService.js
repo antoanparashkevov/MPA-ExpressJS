@@ -42,11 +42,11 @@ const update = async (roomId, roomData) => {
     room.name = roomData.name;
     room.description = roomData.description;
     room.location = roomData.location;
-    room.price = roomData.price;
-    room.beds = roomData.beds;
-    room.imgURL =roomData.imgURL;
+    room.price = Number(roomData.price);
+    room.beds = Number(roomData.beds);
+    room.imgURL = roomData.imgUrl;
 
-    
+    console.log('Updated room',room)
     await room.save();
         
 }
