@@ -1,15 +1,16 @@
 const {createFacility, getAllFacilities, addFacilities} = require("../services/facilityService");
 const {getById} = require("../services/roomService");
+const {hasRole} = require("../middlewares/guards");
 const router = require('express').Router()
 
-router.get('/create',  (req,res)=>{
+router.get('/create',  hasRole('admin'), (req,res)=>{
    //show creation form
     res.render('pages/createFacility', {
         title: 'Create New Facility'
     })
 })
 
-router.post('/create', async(req,res)=>{
+router.post('/create', hasRole('admin'), async(req,res)=>{
     const formData = req.body
     try{
         await createFacility(formData.label,formData.icon);
