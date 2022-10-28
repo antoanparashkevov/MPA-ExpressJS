@@ -1,0 +1,73 @@
+<section>
+    <h1>New Accommodation</h1>
+    {{#if error}}
+        <div>
+            {{#each error}}
+                {{this}}
+            {{/each}}
+        </div>
+    {{else}}
+        <form action="/room/{{room._id}}/edit" method="post">
+            
+            {{#with room}}
+            <div>
+                <label for="name">
+                    <span>Name</span>
+                    <input 
+                        type="text" 
+                        name="name"
+                        value="{{name}}"           
+                    >
+                </label>
+            </div>
+            <div>
+                <label for="desc">
+                    <span>Description</span>
+                    <textarea rows="5" name="desc">{{description}}</textarea>
+                </label>
+            </div>
+            <div>
+                <label for="location">
+                    <span>Location</span>
+                    <input 
+                        type="text"
+                        name="location"
+                        value="{{location}}"
+                    >
+                </label>
+            </div>
+            <div>
+                <label for="price">
+                    <span>Price</span>
+                    <input 
+                        type="number"
+                        name="price"
+                        value="{{price}}"
+                    >
+                </label>
+            </div>
+            <div>
+                <label for="beds">
+                    <span>Beds</span>
+                    <input 
+                        type="number" 
+                        name="beds"
+                        value="{{beds}}"
+                    >
+                </label>
+            </div>
+            <div>
+                <label for="imgURL">
+                    <span>Image</span>
+                    <input 
+                        type="text" 
+                        name="imgURL"
+                        value="{{imgURL}}"
+                    >
+                </label>
+            </div>
+            {{/with}}
+            <button>Update</button>
+        </form>
+    {{/if}}
+</section>

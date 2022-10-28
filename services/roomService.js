@@ -29,8 +29,30 @@ const create =  (data,ownerId) => {
     return Room.create(room);
 }
 
+const update = async (roomId, roomData) => {
+    const missing = Object.entries(roomData).filter(([k,v])=> !v);
+
+    if(missing.length > 0) {
+        throw new Error(missing.map(m=>`${m[0]} is required!`).join('\n'));
+    }
+    
+    const room = await Room.findById(roomId)
+    
+    room.name = roomData.name;
+    room.description = roomData.desc;
+    room.location = roomData.location;
+    room.price = roomData.price;
+    room.beds = roomData.beds;
+    room.imgURL =roomData.imgURL;
+
+    
+    await room.save();
+        
+}
+
 module.exports = {
     getAll,
     getById,
-    create
+    create,
+    update
 }

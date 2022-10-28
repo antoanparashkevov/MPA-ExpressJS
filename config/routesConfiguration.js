@@ -6,11 +6,13 @@ const aboutController = require('../controllers/aboutController')
 const facilityController = require('../controllers/facilityController')
 const defaultController = require('../controllers/defaultController')
 const authController = require('../controllers/authController')
+const editController = require('../controllers/editController')
 const {isUser, isGuest} = require("../middlewares/guards");
 module.exports = (app) =>{
     app.use(homeController);
     app.use('/catalog',catalogController);
     app.use('/create',isUser(), createController);
+    app.use('/room', isUser(), editController)
     app.use('/about',aboutController);
     app.use('/facility', isUser(),facilityController);
     app.use('/auth',isGuest(), authController)

@@ -1,9 +1,9 @@
-const {Schema, model, Types: {ObjectId}} = require('mongoose')
+const {Schema, model, Types } = require('mongoose')
 
 const facilitySchema = new Schema({
     label: {type: String, required: true, default: ''},
     iconUrl: {type: String, required: true, default: '/static/icons'},
-    rooms: {type: [ObjectId], ref: 'Room', default: []}
+    rooms: {type: [Types.ObjectId], ref: 'Room', default: []}
 })
 
 
