@@ -22,6 +22,11 @@ router.post('/create', async(req,res)=>{
 router.get('/:roomId/decorateRoom', async (req, res)=> {
     const roomId = req.params.roomId;
     const room = await getById(roomId);
+    
+    if(!req.user || (room.owner !== req.user._id)){
+        return res.redirect('/auth/login')
+    }
+    
     const facilities = await getAllFacilities();
     facilities.forEach(f=>{
         if(room.facilities.some(fObj=>fObj._id.toString() === f._id.toString())) {
@@ -37,6 +42,12 @@ router.get('/:roomId/decorateRoom', async (req, res)=> {
 
 router.post('/:roomId/decorateRoom', async (req, res)=>{
     const roomId = req.params.roomId;
+    const room = await getById(roomId)
+
+    if(!req.user || (room.owner !== req.user._id)){
+        return res.redirect('/auth/login')
+    }
+    
     const facilityIds = Object.keys(req.body)
     
     await addFacilities(roomId, facilityIds)
