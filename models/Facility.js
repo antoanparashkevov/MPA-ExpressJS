@@ -1,8 +1,8 @@
 const {Schema, model, Types } = require('mongoose')
 
 const facilitySchema = new Schema({
-    label: {type: String, required: true, default: ''},
-    iconUrl: {type: String, required: true, default: '/static/icons'},
+    label: {type: String, required: true},
+    iconUrl: {type: String, minlength: [1, 'The Icon Url must be at least 1 symbol long'], default: '/static/icons'},
     rooms: {type: [Types.ObjectId], ref: 'Room', default: []}
 })
 

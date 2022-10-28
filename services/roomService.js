@@ -1,21 +1,22 @@
 const Room = require('../models/Room')
 
-const getAll =  () => {
+const getAll = () => {
       return Room.find({}).lean()
 }
 
-const getById =  (id)=>{
+const getById = (id)=>{
     //lean extracts only the values, not methods or virtual properties just for security (express-handlebars error)
     return Room.findById(id).lean()
 }
-const create =  (data,ownerId) => {
+
+const create = async (data,ownerId) => {
     const room = {
         name: data.name,
-        description: data.desc,
+        description: data.description,
         location: data.location,
-        price: data.price,
-        beds: data.beds,
-        imgURL: data.imgURL,
+        price: Number(data.price),
+        beds: Number(data.beds),
+        imgURL: data.imgUrl,
         owner: ownerId
     }
     
@@ -25,8 +26,8 @@ const create =  (data,ownerId) => {
         throw new Error(missing.map(m=>`${m[0]} is required!`).join('\n'));
     }
 
-
-    return Room.create(room);
+    const result = await Room.create(room);
+    return result;
 }
 
 const update = async (roomId, roomData) => {
@@ -39,7 +40,7 @@ const update = async (roomId, roomData) => {
     const room = await Room.findById(roomId)
     
     room.name = roomData.name;
-    room.description = roomData.desc;
+    room.description = roomData.description;
     room.location = roomData.location;
     room.price = roomData.price;
     room.beds = roomData.beds;
@@ -50,7 +51,7 @@ const update = async (roomId, roomData) => {
         
 }
 
-async function deleteById(roomId) {
+const deleteById = async (roomId) => {
     return Room.findByIdAndDelete(roomId);
 }
 

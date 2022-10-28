@@ -13,8 +13,8 @@ router.get('/create',  hasRole('admin'), (req,res)=>{
 router.post('/create', hasRole('admin'), async(req,res)=>{
     const formData = req.body
     try{
-        await createFacility(formData.label,formData.icon);
-        res.status(201).redirect('/catalog')
+        await createFacility(formData.label,formData.iconUrl);
+        res.redirect('/catalog')
     }catch (error) {
         throw new Error(error.message)
     }
@@ -30,7 +30,7 @@ router.get('/:roomId/decorateRoom', async (req, res)=> {
     
     const facilities = await getAllFacilities();
     facilities.forEach(f=>{
-        if(room.facilities.some(fObj=>fObj._id.toString() === f._id.toString())) {
+        if((room.facilities || []).some(id=> id.toString() === f._id.toString())) {
             f.checked = true
         }
     })

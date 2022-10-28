@@ -8,7 +8,7 @@ module.exports = async (app) =>{
             useUnifiedTopology: true,
             useNewUrlParser: true
         })
-        console.log('connected successfully to the database')
+        console.log('Database connected')
     } catch(error) {
         console.error(error.message)
         process.exit(1)

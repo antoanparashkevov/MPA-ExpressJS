@@ -2,15 +2,16 @@ const router = require('express').Router()
 // const {create} = require('../services/accomodationService')
 const {create} = require('../services/roomService')
 
-const getHandler = (req,res)=>{
+router.get('/',(req,res)=>{
     res.render('pages/create',{
         title:'Create page'
     })
-}
-const postHandler = async (req,res)=>{
+})
+router.post('/',async (req,res)=>{
     const formData = req.body;
+    console.log(req.user)
     try{
-       const result =  await create(formData, req.user._id)
+        const result =  await create(formData, req.user._id)
         res.redirect('/catalog/' + result._id)
     }catch (err){
         //TODO error conditional statement in the view.
@@ -20,9 +21,6 @@ const postHandler = async (req,res)=>{
             error: err.message.split('\n'),
         })
     }
-}
-
-router.get('/',getHandler)
-router.post('/',postHandler)
+})
 
 module.exports = router

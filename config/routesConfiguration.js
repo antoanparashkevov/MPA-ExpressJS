@@ -1,4 +1,3 @@
-//imports...
 const homeController = require('../controllers/homeController')
 const catalogController = require('../controllers/catalogController')
 const createController = require('../controllers/createController')
@@ -9,6 +8,7 @@ const authController = require('../controllers/authController')
 const editController = require('../controllers/editController')
 const deleteController = require('../controllers/deleteController')
 const {isUser, isGuest} = require("../middlewares/guards");
+
 module.exports = (app) =>{
     app.use(homeController);
     app.use('/catalog',catalogController);

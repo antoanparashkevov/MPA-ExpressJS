@@ -1,36 +1,37 @@
 //comment out the old service that uses the FS module
 // const {getAll, getById} = require("../services/accomodationService");
 
-const roomService = require("../services/roomService")
+const {getById, getAll} = require("../services/roomService")
 const router = require('express').Router()
 
 router.get('/', async (req,res)=>{
     //TODO make search bar to works as before
-    const objQueries = {
-        name: req.query.name || '',
-        location: req.query.location || '',
-        fromPrice:+req.query.fromPrice || 1,
-        toPrice: +req.query.toPrice || 1000
-        
-    }
-    // const rooms = getAll(objQueries);
-    const roomsFromDB = await roomService.getAll()
+    
+    // const objQueries = {
+    //     name: req.query.name || '',
+    //     location: req.query.location || '',
+    //     fromPrice:+req.query.fromPrice || 1,
+    //     toPrice: +req.query.toPrice || 1000
+    //    
+    // }
+    
+    const roomsFromDB = await getAll()
     res.render('pages/catalog',{
         title: 'Catalog page',
         roomsFromDB,
-        name:objQueries.name,
-        location:objQueries.location,
-        fromPrice:objQueries.fromPrice,
-        toPrice:objQueries.toPrice,
+        // name:objQueries.name,
+        // location:objQueries.location,
+        // fromPrice:objQueries.fromPrice,
+        // toPrice:objQueries.toPrice,
     })
 })
 
 router.get('/:id',async (req,res)=>{
     const id = req.params.id;
-    // const room = getById(id); 
-    const room = await roomService.getById(id);
+    const room = await getById(id); 
+    console.log(room)
     
-    if(req.user && req.user._id === room.owner.toString()) {
+    if(req.user && req.user._id == room.owner) {
         room.isOwner = true
     }
     

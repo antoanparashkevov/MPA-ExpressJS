@@ -15,7 +15,7 @@ const createFacility =  function(label, iconUrl){
 
 const addFacilities = async function(roomId, facilityIds) {
     const room = await Room.findById(roomId).populate('facilities')
-    const facilities = await Facility.find({_id: { $in: facilityIds}})
+    const facilities = await Facility.find({_id: { $in: facilityIds } })
     console.log('checked facilities >>>', facilities)
     
     //since we populate facilities array, now it's not full of ids, it contents real facility objects
@@ -23,7 +23,7 @@ const addFacilities = async function(roomId, facilityIds) {
     console.log('facility to remove >>> ',facilitiesToRemove);
     
     facilitiesToRemove.forEach(f=>{
-        f.rooms.splice(f.rooms.findIndex(rId=> rId === roomId),1);
+        f.rooms.splice(f.rooms.findIndex(rId=> rId.toString() === roomId),1);
         room.facilities.splice(room.facilities.findIndex(facility=>facility._id.toString() === f._id.toString()),1)
     })
     

@@ -30,7 +30,7 @@ router.post('/register',async (req,res)=>{
         if(formData.password.trim() !== formData.repass.trim()) {
             throw new Error("Passwords don't match!")
         }
-        const result = await register(formData.username.trim(), formData.password.trim());
+        const result = await register(formData.username, formData.password);
         attachToken(req, res, result)
         res.redirect('/')
     }catch (err) {
@@ -39,6 +39,11 @@ router.post('/register',async (req,res)=>{
             error: err.message.split('\n')
         })
     }
+})
+
+router.get('/logout', (req,res)=>{
+    res.clearCookie('jwt');
+    return res.redirect('/')
 })
 
 function attachToken(req,res,data) {
