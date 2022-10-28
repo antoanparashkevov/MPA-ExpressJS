@@ -50,9 +50,14 @@ const update = async (roomId, roomData) => {
         
 }
 
+async function deleteById(roomId) {
+    return Room.findByIdAndDelete(roomId);
+}
+
 module.exports = {
     getAll,
     getById,
     create,
-    update
+    update,
+    deleteById
 }

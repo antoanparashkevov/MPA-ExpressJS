@@ -6,6 +6,11 @@ router.get('/:id/edit', async (req, res) => {
     const roomId = req.params.id;
     const room = await getById(roomId);
     
+    
+    if(!req.user || (room.owner !== req.user._id)) {
+        return res.redirect('/auth/login')    
+    }
+    
     res.render('pages/edit', {
         title: `Edit ${room.name}`,
         room
@@ -15,6 +20,11 @@ router.get('/:id/edit', async (req, res) => {
 router.post('/:id/edit', async (req,res) => {
     const roomId = req.params.id;
     const roomData = req.body;
+    const room = getById(roomId)
+    
+    if(!req.user || (room.owner !== req.user._id)) {
+        return res.redirect('/auth/login')
+    }
     
     try{
          await update(roomId, roomData)

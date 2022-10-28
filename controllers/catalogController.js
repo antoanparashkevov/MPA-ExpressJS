@@ -30,7 +30,7 @@ router.get('/:id',async (req,res)=>{
     // const room = getById(id); 
     const room = await roomService.getById(id);
     
-    if(req.user && req.user._id.toString() === room.owner.toString()) {
+    if(req.user && req.user._id === room.owner.toString()) {
         room.isOwner = true
     }
     
