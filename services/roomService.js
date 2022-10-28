@@ -15,8 +15,8 @@ const create =  (data,ownerId) => {
         location: data.location,
         price: data.price,
         beds: data.beds,
-        imgURL: data.img,
-        ownerId: ownerId
+        imgURL: data.imgURL,
+        owner: ownerId
     }
     
     const missing = Object.entries(room).filter(([k,v])=> !v);

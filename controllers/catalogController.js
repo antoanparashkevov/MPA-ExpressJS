@@ -1,8 +1,11 @@
+//comment out the old service that uses the FS module
 // const {getAll, getById} = require("../services/accomodationService");
+
 const roomService = require("../services/roomService")
 const router = require('express').Router()
 
 router.get('/', async (req,res)=>{
+    //TODO make search bar to works as before
     const objQueries = {
         name: req.query.name || '',
         location: req.query.location || '',

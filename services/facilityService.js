@@ -1,5 +1,7 @@
 const Facility = require('../models/Facility')
 const Room = require('../models/Room')
+
+
 const getAllFacilities = function() {
     return Facility.find({}).lean()
 }
