@@ -24,7 +24,7 @@ router.get('/:roomId/decorateRoom', async (req, res)=> {
     const roomId = req.params.roomId;
     const room = await getById(roomId);
     
-    if(!req.user || (room.owner !== req.user._id)){
+    if(!req.user || (room.owner.toString() !== req.user._id)){
         return res.redirect('/auth/login')
     }
     
@@ -45,7 +45,7 @@ router.post('/:roomId/decorateRoom', async (req, res)=>{
     const roomId = req.params.roomId;
     const room = await getById(roomId)
 
-    if(!req.user || (room.owner !== req.user._id)){
+    if(!req.user || (room.owner.toString() !== req.user._id)){
         return res.redirect('/auth/login')
     }
     
@@ -53,7 +53,7 @@ router.post('/:roomId/decorateRoom', async (req, res)=>{
     
     await addFacilities(roomId, facilityIds)
     
-    res.redirect(`/facility/${roomId}/decorateRoom`)
+    res.redirect(`/catalog/${roomId}`)
 })
 
 module.exports = router;
