@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {login, register} = require("../services/authService");
+const { body, validationResult } = require('express-validator');
 
 router.get('/login', (req,res)=>{
     res.render('pages/login', {
@@ -20,23 +21,39 @@ router.get('/register', (req,res)=>{
     })
 })
 
-router.post('/register',async (req,res)=>{
+router.post('/register',
+    body('username')
+        .trim()
+        .notEmpty()
+        .withMessage('Username is required')
+        .isLength({min: 3})
+        .withMessage('Username must be at least 3 characters long'),
+    body('password')
+        .trim()
+        .notEmpty()
+        .withMessage('Password is required')
+        .isLength({min: 3})
+        .withMessage('Passowrd must be at least 3 characters long'),
+    body('repass')
+        .trim()
+        .custom(async (value, {req}) =>{
+            if(value !== req.body.password) {
+                throw new Error('Passwords don\t match!')
+            }
+        }),
+    async (req,res)=>{
     try {
+        const {errors} =  validationResult(req);
+        console.log(errors)
         const formData = req.body;
-        if(formData.username.trim() === '' && formData.password.trim() === '') {
-            throw new Error('All fields are required!')
-        }
-        
-        if(formData.password.trim() !== formData.repass.trim()) {
-            throw new Error("Passwords don't match!")
-        }
         const result = await register(formData.username, formData.password);
         attachToken(req, res, result)
         res.redirect('/')
     }catch (err) {
         res.render('pages/register', {
-            title: 'Register',
-            error: err.message.split('\n')
+            title: 'Register page',
+            error: err.message.split('\n'),
+            username: req.body.username
         })
     }
 })

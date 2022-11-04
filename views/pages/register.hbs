@@ -6,13 +6,13 @@
                 {{this}}
             {{/each}}
         </div>
-    {{else}}
+    {{/if}}
         <main>
             <form action="/auth/register" method="post">
                 <div>
                     <label for="username">
                         <span>Username</span>
-                        <input type="text" name="username">
+                        <input type="text" name="username" value="{{username}}">
                     </label>
                 </div>
                 <div>
@@ -35,5 +35,4 @@
                 <span>You already have an account? <a href="/auth/login">Sign in</a></span>
             </div>
         </footer>
-    {{/if}}
 </section>
