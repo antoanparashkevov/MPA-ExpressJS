@@ -25,13 +25,13 @@ router.post('/register',
     body('username')
         .trim()
         .notEmpty()
-        .withMessage('Username is required')
+        .withMessage('Username is required').bail()
+        .isAlphanumeric()
+        .withMessage('Username may contain only english letters and numbers!')
         .isLength({min: 3})
         .withMessage('Username must be at least 3 characters long'),
     body('password')
         .trim()
-        .notEmpty()
-        .withMessage('Password is required')
         .isLength({min: 3})
         .withMessage('Passowrd must be at least 3 characters long'),
     body('repass')
@@ -44,16 +44,20 @@ router.post('/register',
     async (req,res)=>{
     try {
         const {errors} =  validationResult(req);
-        console.log(errors)
+        if(errors.length > 0) {
+            throw errors;
+        }
         const formData = req.body;
         const result = await register(formData.username, formData.password);
         attachToken(req, res, result)
         res.redirect('/')
-    }catch (err) {
+    }catch (error) {
+        const fields = Object.fromEntries(error.map(e=>[e.param, e.param]))
+        fields.oldValueName = req.body.username;
         res.render('pages/register', {
             title: 'Register page',
-            error: err.message.split('\n'),
-            username: req.body.username
+            error,
+            fields
         })
     }
 })

@@ -3,31 +3,33 @@
     {{#if error}}
         <div>
             {{#each error}}
-                {{this}}
+                    <div>{{msg}}</div>
             {{/each}}
         </div>
     {{/if}}
         <main>
             <form action="/auth/register" method="post">
+                {{#with fields}}
                 <div>
                     <label for="username">
                         <span>Username</span>
-                        <input type="text" name="username" value="{{username}}">
+                        <input type="text" {{#if username}} style="border: 2px solid red;"{{/if}} name="username" value="{{oldValueName}}">
                     </label>
                 </div>
                 <div>
                     <label for="password">
                         <span>Password</span>
-                        <input type="password" name="password">
+                        <input type="password" {{#if password}} style="border: 2px solid red;"{{/if}} name="password">
                     </label>
                 </div>
                 <div>
                     <label for="repass">
                         <span>Repeat</span>
-                        <input type="password" name="repass">
+                        <input type="password" {{#if repass}} style="border: 2px solid red;"{{/if}} name="repass">
                     </label>
                 </div>
                 <button>Sign Up</button>
+                {{/with}}
             </form>
         </main>
         <footer>
