@@ -12,12 +12,15 @@
             </form>
         </div>
     </main>
+    
+    {{#if roomsFromDB}}
         <ul>
-                {{#each roomsFromDB}}
-                    {{>roomCard}}
-                {{/each}}
+            {{#each roomsFromDB}}
+                {{>roomCard}}
+            {{/each}}
         </ul>
-    
-<!--    TODO if we don't have any data to display something-->
-    
+        {{else}}
+        <div>No data available at this point of time! Be the first! <a href="/create">Host</a></div>
+    {{/if}}
+       
 </section>
