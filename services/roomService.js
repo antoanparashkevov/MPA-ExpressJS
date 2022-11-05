@@ -26,8 +26,7 @@ const create = async (data,ownerId) => {
         throw new Error(missing.map(m=>`${m[0]} is required!`).join('\n'));
     }
 
-    const result = await Room.create(room);
-    return result;
+    return Room.create(room);
 }
 
 const update = async (roomId, roomData) => {
