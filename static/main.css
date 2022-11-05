@@ -1,4 +1,7 @@
 @import url('./layout-header.css');
+@import url('./layout.css');
+@import url('./layout-section.css');
+@import url('./vars.css');
 * {
     position: relative;
     font-family: sans-serif;
@@ -53,8 +56,16 @@ nav.main-nav>ul>li:hover {
 }
 
 #page-content>footer.main-footer {
-    text-align-last: center;
     padding: 20px;
+    box-shadow: var(--shadow);
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 22px;
+    font-family: serif;
+    font-weight: 600;
 }
 
 .error-box {

@@ -1,21 +1,21 @@
 <section>
     <div class="item">
-        Accommodation Service
+        <p class="content">Accommodations</p>
     </div>
     <div class="item">
         <main class="layout">
             
             <div class="img-wrapper">
-                 <img src="/static/img/mainImg.svg" class="img"> 
+                 <img src="/static/img/main.png" class="img"> 
             </div>
             
             <div class="content">
-                <p>Welcome to our Accommodation Service!</p>
-                <p>Quickly options</p>
+                <p class="sub-header">Welcome to our Accommodation Service!</p>
+                <p class="sub-header">Quickly options</p>
                 <div class="btn-container">
-                    <div class="btn-wrapper"><a href="/catalog">Browse Listing</a></div>
+                    <div class="btn-wrapper"><a href="/catalog">Browse</a></div>
                     {{#if hasUser}}
-                    <div class="btn-wrapper"><a href="/create">Host new Accommodation</a></div>
+                    <div class="btn-wrapper"><a href="/create">Host</a></div>
                     {{/if}}
                 </div>
             </div>

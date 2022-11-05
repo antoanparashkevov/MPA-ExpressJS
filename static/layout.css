@@ -1,0 +1,51 @@
+.item {
+    box-shadow: var(--shadow);
+    border-radius: var(--round);
+    overflow: hidden;
+}
+
+main.layout {
+    padding: 14px;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+}
+
+.content {
+    padding: 10px 25px;
+    font-size: 22px;
+}
+
+.sub-header {
+    padding: 10px;
+}
+
+.img-wrapper>img {
+    border-radius: 50%;
+    border: 2px solid black;
+    box-shadow: var(--shadow-btn);
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.btn-wrapper {
+    height: 30px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-wrapper>a {
+    text-decoration: none;
+}
+
+.btn-wrapper:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    box-shadow: var(--shadow-btn)
+}

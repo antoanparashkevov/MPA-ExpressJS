@@ -1,19 +1,38 @@
-/* Header and navigation menu */
-.nav-right {
-    text-align: right;
-}
-.main-nav ul {
-    list-style: none;
-    display: inline-block;
-}
-.main-nav li {
-    display: block;
-    float: left;
+.main-nav {
+    width: 65%;
+    margin-right: 50px;
 }
 
-.main-nav a{
-    margin: 4px;
+.main-nav.right-nav {
+    width: 100%;
+}
+
+.main-nav>ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.right-ul  {
+    justify-content: flex-end !important;
+}
+
+.main-nav li {
+    display: flex;
+    width: 80px;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-nav>li:hover {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-btn);
+}
+
+.main-nav a {
     text-decoration: none;
-    padding: 4px 8px;
-    
+    font-size: 20px;
 }
