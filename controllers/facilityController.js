@@ -3,6 +3,7 @@ const {getById} = require("../services/roomService");
 const {hasRole} = require("../middlewares/guards");
 const router = require('express').Router()
 const {body, validationResult} = require('express-validator');
+const {parseError} = require("../util/parser");
 
 router.get('/create',  hasRole('admin'), (req,res)=>{
    //show creation form
@@ -23,7 +24,12 @@ router.post('/create', hasRole('admin'),
         await createFacility(formData.label,formData.iconUrl);
         res.redirect('/catalog')
     }catch (error) {
-        throw new Error(error.message)
+        const error = parseError(error)
+        res.render('pages/createFacility', {
+            title: 'Create New Facility',
+            error,
+            body: formData
+        })
     }
 })
 

@@ -19,6 +19,7 @@ function parseError(error) {
     } else {
         result.messages.push(error.message)
     }
+    return result;
 }
 
 module.exports = {
