@@ -19,15 +19,19 @@ router.post('/create', hasRole('admin'),
     body('iconUrl')
         .trim(),
     async(req,res)=>{
-    const formData = req.body
+    const formData = req.body;
+    const {errors} = validationResult(req)
     try{
+        
+        if(errors.length > 0) {
+            throw errors;
+        }
         await createFacility(formData.label,formData.iconUrl);
         res.redirect('/catalog')
     }catch (error) {
-        const error = parseError(error)
         res.render('pages/createFacility', {
             title: 'Create New Facility',
-            error,
+            error: parseError(error),
             body: formData
         })
     }
