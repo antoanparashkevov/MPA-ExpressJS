@@ -2,11 +2,11 @@
     <h1>Edit Accommodation</h1>
     {{#if error}}
         <div>
-            {{#each error}}
-                {{this}}
+            {{#each error.messages}}
+                 <div>{{this}}</div>     
             {{/each}}
         </div>
-    {{else}}
+    {{/if}}
         <form action="/room/{{room._id}}/edit" method="post">
             
             {{#with room}}
@@ -62,12 +62,11 @@
                     <input 
                         type="text" 
                         name="imgUrl"
-                        value="{{imgURL}}"
+                        value="{{imgUrl}}"
                     >
                 </label>
             </div>
             {{/with}}
             <input type="submit" value="Update">
         </form>
-    {{/if}}
 </section>
