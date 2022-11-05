@@ -2,8 +2,8 @@
     <h1>Register</h1>
     {{#if error}}
         <div>
-            {{#each error}}
-                    <div>{{msg}}</div>
+            {{#each error.messages}}
+                    <div>{{this}}</div>
             {{/each}}
         </div>
     {{/if}}
@@ -12,19 +12,26 @@
                 <div>
                     <label for="username">
                         <span>Username</span>
-                        <input type="text" {{#if fields.username}} style="border: 2px solid red;"{{/if}} name="username" value="{{fields.oldValueName}}">
+                        <input type="text" 
+                            {{#if error.fields.username}} style="border: 2px solid red;"{{/if}} 
+                               name="username" 
+                               value="{{username}}">
                     </label>
                 </div>
                 <div>
                     <label for="password">
                         <span>Password</span>
-                        <input type="password" {{#if fields.password}} style="border: 2px solid red;"{{/if}} name="password">
+                        <input type="password" 
+                            {{#if error.fields.password}} style="border: 2px solid red;"{{/if}} 
+                               name="password">
                     </label>
                 </div>
                 <div>
                     <label for="repass">
                         <span>Repeat</span>
-                        <input type="password" {{#if fields.repass}} style="border: 2px solid red;"{{/if}} name="repass">
+                        <input type="password" 
+                            {{#if error.fields.repass}} style="border: 2px solid red;"{{/if}} 
+                               name="repass">
                     </label>
                 </div>
                 <button>Sign Up</button>

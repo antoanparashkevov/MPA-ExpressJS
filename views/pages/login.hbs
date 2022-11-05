@@ -2,23 +2,29 @@
     <h1>Login</h1>
     {{#if error}}
         <div>
-            {{#each error}}
-                {{this}}
+            {{#each error.messages}}
+                <div>{{this}}</div>
             {{/each}}
         </div>
-    {{else}}
+    {{/if}}
         <main>
             <form action="/auth/login" method="post">
                 <div>
                     <label for="username">
                         <span>Username</span>
-                        <input type="text" name="username">
+                        <input type="text" 
+                               {{#if error.fields.username}}style="border: 2px solid red"{{/if}} 
+                               name="username"
+                               value="{{username}}"
+                        >
                     </label>
                 </div>
                 <div>
                     <label for="password">
                         <span>Password</span>
-                        <input type="password" name="password">
+                        <input type="password" 
+                               {{#if error.fields.password}}style="border: 2px solid red"{{/if}} 
+                               name="password">
                     </label>
                 </div>
                 <button>Sign in</button>
@@ -29,5 +35,4 @@
             <span>You don't have an account? <a href="/auth/register">Sign up</a></span>
         </div>
         </footer>
-    {{/if}}
 </section>
