@@ -2,6 +2,7 @@ const {createFacility, getAllFacilities, addFacilities} = require("../services/f
 const {getById} = require("../services/roomService");
 const {hasRole} = require("../middlewares/guards");
 const router = require('express').Router()
+const {body, validationResult} = require('express-validator');
 
 router.get('/create',  hasRole('admin'), (req,res)=>{
    //show creation form
@@ -10,7 +11,13 @@ router.get('/create',  hasRole('admin'), (req,res)=>{
     })
 })
 
-router.post('/create', hasRole('admin'), async(req,res)=>{
+router.post('/create', hasRole('admin'),
+    body('label')
+        .trim()
+        .notEmpty().withMessage('Label is required!'),
+    body('iconUrl')
+        .trim(),
+    async(req,res)=>{
     const formData = req.body
     try{
         await createFacility(formData.label,formData.iconUrl);
