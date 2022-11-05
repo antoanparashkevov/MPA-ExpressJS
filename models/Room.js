@@ -1,6 +1,6 @@
 const {Schema, model, Types} = require('mongoose')
 
-const URL_REGEX = /^https?:\/\/.*$/i
+const URL_REGEX = /^(https?:\/)?\/.*$/i
 
 const roomSchema = new Schema({
 
