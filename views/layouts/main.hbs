@@ -11,14 +11,14 @@
 <div id="page-content">
     <header>
         {{#if hasUser}}
-        <div>
-          Welcome,  {{username}}
+        <div class="username-container">
+            <a href="/">Welcome, {{username}}</a>
         </div>
         {{/if}}
         <nav class="main-nav nav-right">
             <ul>
                 {{#if hasUser}}
-                <li><a href="/catalog">Browse Accommodations</a></li>
+                <li><a href="/catalog">Browse</a></li>
                 <li><a href="/create">Host</a></li>
                 <li><a href="/facility/create">Create facility</a></li>
                 <li><a href="/auth/logout">Logout</a></li>
@@ -30,10 +30,12 @@
             </ul>
         </nav>
     </header>
-    <main>
+    
+    <main class="main-content">
         {{{body}}}
     </main>
-    <footer>
+    
+    <footer class="main-footer">
        Antoan Parashkevov &copy; 2022
     </footer>
 </div>

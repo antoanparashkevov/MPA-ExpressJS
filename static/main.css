@@ -1,22 +1,36 @@
 @import url('./layout-header.css');
 * {
+    position: relative;
     font-family: sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-size: 18px;
+    color: #252525;
     font-weight: normal;
 }
 
-#page-content {
-    position: relative;
-    max-width: 980px;
-    margin: auto;
-    min-height: 100vh;
+body {
+    display: flex;
+    width: 100%;
 }
 
-#page-content>header {
+#page-content {
+    width: 100%;
     position: relative;
+    margin: auto;
+    background: #dce9ff;
+}
+
+#page-content>header { 
+    width: 100%;
+    height: 75px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    background: #d5d5d5;
 }
 
 #page-content>header::after{
@@ -25,10 +39,32 @@
     clear: both;
 }
 
-#page-content>main {
-    padding-bottom: 48px;
+.username-container>a{
+    text-decoration: none;
 }
 
-#page-content>footer {
-/*    TODO some styles*/
+nav.main-nav>ul>li:hover {
+    border: 1px solid #000000;
+}
+
+    
+#page-content>main.main-content {
+    padding: 25px 50px 50px 50px;
+}
+
+#page-content>footer.main-footer {
+    text-align-last: center;
+    padding: 20px;
+}
+
+.error-box {
+    color: red;
+    padding: 16px 16px;
+    margin: 32px;
+    background-color: hsl(var(--action-color), var(--action-s), 25%);
+    box-shadow: var(--shadow);
+}
+
+.field-error {
+    border: 1px solid red;
 }

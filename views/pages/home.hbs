@@ -1,1 +1,25 @@
-<h2>Welcome to our site</h2>
+<section>
+    <div class="item">
+        Accommodation Service
+    </div>
+    <div class="item">
+        <main class="layout">
+            
+            <div class="img-wrapper">
+                 <img src="/static/img/mainImg.svg" class="img"> 
+            </div>
+            
+            <div class="content">
+                <p>Welcome to our Accommodation Service!</p>
+                <p>Quickly options</p>
+                <div class="btn-container">
+                    <div class="btn-wrapper"><a href="/catalog">Browse Listing</a></div>
+                    {{#if hasUser}}
+                    <div class="btn-wrapper"><a href="/create">Host new Accommodation</a></div>
+                    {{/if}}
+                </div>
+            </div>
+            
+        </main>
+    </div>
+</section>
