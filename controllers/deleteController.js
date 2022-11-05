@@ -1,4 +1,5 @@
 const {getById, deleteById} = require("../services/roomService");
+const {parseError} = require("../util/parser");
 const router = require('express').Router();
 
 router.get('/:id/delete', async (req, res) => {
@@ -10,7 +11,7 @@ router.get('/:id/delete', async (req, res) => {
     }
     
     res.render('pages/delete', {
-        title: 'Delete accomodation',
+        title: 'Delete accommodation',
         room
     })
 })
@@ -27,23 +28,13 @@ router.post('/:id/delete', async (req, res) => {
         await deleteById(roomId)
         res.redirect('/catalog')
     }catch (err){
-        //TODO error conditional statement in the view.
         req.body._id = roomId
-        console.log(err.message.split('\n'))
         res.render('pages/delete',{
             title: 'Delete error',
-            error: err.message.split('\n'),
-            room: {
-                ...req.body,
-                imgURL: req.body.imgUrl
-            }
+            error:  parseError(err),
+            room: req.body,
         })
     }
-    
-    res.render('pages/delete', {
-        title: 'Delete accomodation',
-        room
-    })
 })
 
 module.exports = router;

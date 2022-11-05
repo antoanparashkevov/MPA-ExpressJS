@@ -2,14 +2,14 @@
     <h1>Delete Accommodation</h1>
     {{#if error}}
         <div>
-            {{#each error}}
-                {{this}}
+            {{#each error.messages}}
+                <div>{{this}}</div>
             {{/each}}
         </div>
-    {{else}}
-        <form action="/room/{{room._id}}/delete" method="post">
+    {{/if}}
+        {{#with room}}
+        <form action="/room/{{_id}}/delete" method="post">
 
-            {{#with room}}
                 <div>
                     <label for="name">
                         <span>Name</span>
@@ -71,7 +71,7 @@
                         <input
                                 type="text"
                                 name="imgUrl"
-                                value="{{imgURL}}"
+                                value="{{imgUrl}}"
                                 disabled
                         >
                     </label>
@@ -79,5 +79,4 @@
             {{/with}}
             <button>Delete</button>
         </form>
-    {{/if}}
 </section>
