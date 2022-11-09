@@ -16,10 +16,6 @@ main.layout {
     font-size: 22px;
 }
 
-.sub-header {
-    padding: 10px;
-}
-
 .img-wrapper>img {
     border-radius: 50%;
     border: 2px solid black;

@@ -4,7 +4,7 @@
 @import url('./vars.css');
 * {
     position: relative;
-    font-family: sans-serif;
+    font-family: Verdana, serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,13 +15,13 @@
 
 body {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
 }
 
 #page-content {
+    min-width: 320px;
     width: 100%;
-    position: relative;
-    margin: auto;
     background: #dce9ff;
 }
 
@@ -76,6 +76,7 @@ nav.main-nav>ul>li:hover {
     box-shadow: var(--shadow);
 }
 
-.field-error {
+.error-field {
     border: 1px solid red;
 }
+/*Error validation END*/
