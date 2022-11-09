@@ -2,29 +2,13 @@
     <span class="main-header">All Accommodations</span>
     <main class="main-content">
         <span class="sub-header">Search</span>
-        <div class="form-wrapper">
-            <form action="/catalog" method="get">
-                
-                <div class="form-control-container">
+        <div>
+            <form action="/catalog" method="get" class="search-menu">
                     <input type="text" placeholder="Name" name="name" value="{{name}}">
-                </div>
-
-                <div class="form-control-container">
                     <input type="text" placeholder="Location" name="location" value="{{location}}">
-                </div>
-
-                <div class="form-control-container">
                     <input type="number" placeholder="From Price" name="fromPrice" value="{{fromPrice}}">
-                </div>
-
-                <div class="form-control-container">
-
-                </div>
-                
-                <div class="form-control-container">
                     <input type="number" placeholder="To Price" name="toPrice" value="{{toPrice}}">
-                </div>
-                <input type="submit" value="Search" class="btn btn-primary btn-submit">
+                <button class="btn btn-primary btn-submit">Submit</button>
             </form>
         </div>
     </main>

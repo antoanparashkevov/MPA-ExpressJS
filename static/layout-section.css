@@ -21,7 +21,7 @@ section>.main-header {
 section .main-content {
     height: auto;
     justify-content: center;
-    width: auto;
+    width: 100%;
     min-height: 100px;
     padding: 30px 10px;
     margin-top: 15px;
@@ -42,7 +42,7 @@ section .form-wrapper {
     margin: 20px;
     justify-content: center;
     align-items: center;
-    width: auto;
+    width: 100%;
     height: auto;
     min-height: 100px;
     display: flex;
@@ -55,4 +55,41 @@ section .form-control-container {
     justify-content: space-evenly;
     margin: 15px;
     align-items: center;
+    min-height: 75px;
+}
+
+section .search-menu {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+section .search-menu input {
+    width: 120px;
+    margin: 10px
+}
+
+section .btn-submit {
+    background: #B9DFFF;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: var(--shadow-submit-button);
+    text-shadow: none;
+    width: 100px;
+    height: 65px;
+}
+section .btn-submit:hover {
+    background: #016ABC;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: var(--shadow-submit-button);
+    text-shadow: none;
 }

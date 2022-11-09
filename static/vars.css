@@ -1,6 +1,7 @@
 :root {
     --shadow: 8px 8px 16px 8px rgba(0, 0, 0, 0.2);
     --shadow-btn: 0px 4px 9px 0px rgb(0 0 0 / 20%);
+    --shadow-submit-button: 5px 5px 5px #eee;
     --round: 0; 
     --radius: 1px solid #000000;
 }
