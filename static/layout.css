@@ -16,7 +16,7 @@ main.layout {
     font-size: 22px;
 }
 
-.img-wrapper>img {
+.search-menu-container>img {
     border-radius: 50%;
     border: 2px solid black;
     box-shadow: var(--shadow-btn);

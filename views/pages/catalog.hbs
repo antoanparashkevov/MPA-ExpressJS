@@ -12,14 +12,19 @@
             </form>
         </div>
     </main>
-    
+
     {{#if roomsFromDB}}
-        <ul>
+        <div class="catalog-container">
+        <ul class="catalog-wrapper">
             {{#each roomsFromDB}}
                 {{>roomCard}}
             {{/each}}
         </ul>
-        {{else}}
-        <div>No data available at this point of time! Be the first! <a href="/create">Host</a></div>
+    {{else}}
+        <div class="no-data-message">
+            <span>No data available at this point of time! Be the first! <a href="/create">Host</a></span>
+        </div>
+    </div>
     {{/if}}
+   
 </section>
