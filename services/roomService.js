@@ -6,7 +6,7 @@ const getAll = () => {
 
 const getById = (id)=>{
     //lean extracts only the values, not methods or virtual properties just for security (express-handlebars error)
-    return Room.findById(id).lean()
+    return Room.findById(id).populate('facilities', 'iconUrl label').lean();
 }
 
 const create = async (data,ownerId) => {
