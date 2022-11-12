@@ -1,29 +1,37 @@
 <section>
-    <h1>New Facility</h1>
+    <h1 class="main-header">New Facility</h1>
     {{#if error}}
-        <div>
+        <div class="error-box">
             {{#each error.messages}}
-               <div>{{this}}</div>
+                <div class="error-field">{{this}}</div>
             {{/each}}
         </div>
     {{/if}}
+    <div class="form-wrapper">
         <form action="/facility/create" method="post">
-                <div>
-                <label for="label">
-                    <span>Label</span>
-                    <input type="text" 
-                           {{#if error.fields.label}}style="border: 2px solid red;"{{/if}} 
-                           name="label" value="{{body.label}}">
+            <div class="form-control-container">
+                <label for="label" class="form-label">
+                    Label
+                    <input type="text"
+                           {{#if error.fields.label}}style="border: 2px solid red;"{{/if}}
+                           name="label"
+                           value="{{body.label}}"
+                           class="form-control"
+                    >
                 </label>
             </div>
-            <div>
-                <label for="iconUrl">
-                    <span>Icon Url</span>
-                    <input type="text" 
-                           {{#if error.fields.iconUrl}}style="border: 2px solid red;"{{/if}} 
-                           name="iconUrl" value="{{body.iconUrl}}">
+            <div class="form-control-container">
+                <label for="iconUrl" class="form-label">
+                    Icon Url
+                    <input type="text"
+                           {{#if error.fields.iconUrl}}style="border: 2px solid red;"{{/if}}
+                           name="iconUrl" 
+                           value="{{body.iconUrl}}"
+                           class="form-control"
+                    >
                 </label>
             </div>
-            <button>Create</button>
+            <button class="btn btn-primary btn-submit">Create</button>
         </form>
+    </div>
 </section>
