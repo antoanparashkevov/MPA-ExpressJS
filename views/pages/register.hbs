@@ -1,45 +1,49 @@
 <section>
-    <h1>Register</h1>
+    <h1 class="main-header">Register</h1>
     {{#if error}}
-        <div>
+        <div class="error-box">
             {{#each error.messages}}
-                    <div>{{this}}</div>
+                <div class="error-field">{{this}}</div>
             {{/each}}
         </div>
     {{/if}}
-        <main>
+        <div class="form-wrapper">
             <form action="/auth/register" method="post">
-                <div>
-                    <label for="username">
-                        <span>Username</span>
+                <div class="form-control-container">
+                    <label for="username" class="form-label">
+                        Username
                         <input type="text" 
                             {{#if error.fields.username}} style="border: 2px solid red;"{{/if}} 
                                name="username" 
-                               value="{{username}}">
+                               value="{{username}}"
+                               class="form-control"
+                        >
                     </label>
                 </div>
-                <div>
-                    <label for="password">
-                        <span>Password</span>
+                <div class="form-control-container">
+                    <label for="password" class="form-label">
+                        Password
                         <input type="password" 
                             {{#if error.fields.password}} style="border: 2px solid red;"{{/if}} 
-                               name="password">
+                               name="password"
+                               class="form-control"
+                        >
                     </label>
                 </div>
-                <div>
-                    <label for="repass">
-                        <span>Repeat</span>
+                <div class="form-control-container">
+                    <label for="repass" class="form-label">
+                        Repeat
                         <input type="password" 
                             {{#if error.fields.repass}} style="border: 2px solid red;"{{/if}} 
-                               name="repass">
+                               name="repass"
+                               class="form-control"
+                        >
                     </label>
                 </div>
-                <button>Sign Up</button>
+                <button class="btn btn-primary btn-submit">Sign Up</button>
             </form>
-        </main>
-        <footer>
+        </div>
             <div>
                 <span>You already have an account? <a href="/auth/login">Sign in</a></span>
             </div>
-        </footer>
 </section>

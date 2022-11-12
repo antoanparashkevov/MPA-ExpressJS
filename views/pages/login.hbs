@@ -1,38 +1,39 @@
 <section>
-    <h1>Login</h1>
+    <h1 class="main-header">Login</h1>
     {{#if error}}
-        <div>
+        <div class="error-box">
             {{#each error.messages}}
-                <div>{{this}}</div>
+                <div class="error-field">{{this}}</div>
             {{/each}}
         </div>
     {{/if}}
-        <main>
-            <form action="/auth/login" method="post">
-                <div>
-                    <label for="username">
-                        <span>Username</span>
-                        <input type="text" 
-                               {{#if error.fields.username}}style="border: 2px solid red"{{/if}} 
-                               name="username"
-                               value="{{username}}"
-                        >
-                    </label>
-                </div>
-                <div>
-                    <label for="password">
-                        <span>Password</span>
-                        <input type="password" 
-                               {{#if error.fields.password}}style="border: 2px solid red"{{/if}} 
-                               name="password">
-                    </label>
-                </div>
-                <button>Sign in</button>
-            </form>
-        </main>
-        <footer>
-        <div>
-            <span>You don't have an account? <a href="/auth/register">Sign up</a></span>
-        </div>
-        </footer>
+            <div class="form-wrapper">
+                <form action="/auth/login" method="post">
+                    <div clas="form-control-container">
+                        <label for="username" class="form-label">
+                            Username
+                            <input type="text" 
+                                   {{#if error.fields.username}}style="border: 2px solid red"{{/if}} 
+                                   name="username"
+                                   value="{{username}}"
+                            >
+                        </label>
+                    </div>
+                    <div class="form-control-container">
+                        <label for="password" class="form-label">
+                            Password
+                            <input type="password" 
+                                   {{#if error.fields.password}}style="border: 2px solid red"{{/if}} 
+                                   name="password" 
+                                   class="form-control"
+                            >
+                        </label>
+                    </div>
+                    <button class="btn btn-primary btn-submit">Sign in</button>
+                </form>
+            </div>
+    
+            <div>
+                <span>You don't have an account? <a href="/auth/register">Sign up</a></span>
+            </div>
 </section>
