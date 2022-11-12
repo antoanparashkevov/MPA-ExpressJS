@@ -1,82 +1,96 @@
 <section>
-    <h1>Delete Accommodation</h1>
+    <h1 class="main-header">Delete Accommodation</h1>
     {{#if error}}
-        <div>
+        <div class="error-box">
             {{#each error.messages}}
-                <div>{{this}}</div>
+                <div class="error-field">{{this}}</div>
             {{/each}}
         </div>
     {{/if}}
         {{#with room}}
-        <form action="/room/{{_id}}/delete" method="post">
-
-                <div>
-                    <label for="name">
-                        <span>Name</span>
-                        <input
-                                type="text"
-                                name="name"
-                                value="{{name}}"
+        <div class="form-wrapper">
+            <form action="/room/{{_id}}/delete" method="post">
+                    <div class="form-control-container">
+                        <label for="name" class="form-label">
+                            Name
+                          </label>
+                            <input
+                                    id="name"
+                                    type="text"
+                                    name="name"
+                                    value="{{name}}"
+                                    disabled
+                                    class="form-control"
+                            >
+                    </div>
+                    <div class="form-control-container">
+                        <label for="desc" class="form-label">
+                            Description
+                          </label>
+                            <textarea
+                                id="desc"    
+                                rows="5"
+                                name="desc"
                                 disabled
-                        >
-                    </label>
-                </div>
-                <div>
-                    <label for="desc">
-                        <span>Description</span>
-                        <textarea 
-                            rows="5" name="desc"
-                            disabled
-                        >
-                            {{description}}
-                        </textarea>
-                    </label>
-                </div>
-                <div>
-                    <label for="location">
-                        <span>Location</span>
-                        <input
-                                type="text"
-                                name="location"
-                                value="{{location}}"
-                                disabled
-                        >
-                    </label>
-                </div>
-                <div>
-                    <label for="price">
-                        <span>Price</span>
-                        <input
-                                type="number"
-                                name="price"
-                                value="{{price}}"
-                                disabled
-                        >
-                    </label>
-                </div>
-                <div>
-                    <label for="beds">
-                        <span>Beds</span>
-                        <input
-                                type="number"
-                                name="beds"
-                                value="{{beds}}"
-                                disabled
-                        >
-                    </label>
-                </div>
-                <div>
-                    <label for="imgUrl">
-                        <span>Image</span>
-                        <input
-                                type="text"
-                                name="imgUrl"
-                                value="{{imgUrl}}"
-                                disabled
-                        >
-                    </label>
-                </div>
-            {{/with}}
-            <button>Delete</button>
+                                class="form-control"
+                            >
+                                {{description}}
+                            </textarea>
+                    </div>
+                    <div class="form-control-container">
+                        <label for="location" class="form-label">
+                            Location
+                          </label>
+                            <input
+                                    id="location"
+                                    type="text"
+                                    name="location"
+                                    value="{{location}}"
+                                    disabled
+                                    class="form-control"
+                            >
+                    </div>
+                    <div class="form-control-container">
+                        <label for="price" class="form-label">
+                            Price
+                          </label>
+                            <input
+                                    id="price"
+                                    type="number"
+                                    name="price"
+                                    value="{{price}}"
+                                    disabled
+                                    class="form-control"
+                            >
+                    </div>
+                    <div class="form-control-container">
+                        <label for="beds" class="form-label">
+                            Beds
+                          </label>
+                            <input
+                                    id="beds"
+                                    type="number"
+                                    name="beds"
+                                    value="{{beds}}"
+                                    disabled
+                                    class="form-control"
+                            >
+                    </div>
+                    <div class="form-control-container">
+                        <label for="imgUrl" class="form-label">
+                            Image
+                          </label>
+                            <input
+                                    id="imgUrl"
+                                    type="text"
+                                    name="imgUrl"
+                                    value="{{imgURL}}"
+                                    disabled
+                                    class="form-control"
+                            >
+                    </div>
+            <button class="btn btn-primary btn-submit">Delete</button>
         </form>
+        {{/with}}
+    </div>
 </section>

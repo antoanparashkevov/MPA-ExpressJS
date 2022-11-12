@@ -118,6 +118,34 @@ section .facilities-container .facilities-wrapper {
     height: auto;
 }
 
+section .facilities-item-own {
+    width: 100%;
+    position: sticky;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: var(--shadow);
+    border: var(--radius);
+    overflow-x: scroll;
+    margin: 15px 0 15px 0;
+}
+
+section .facility-item-own {
+    width: auto;
+    min-width: 65px;
+    margin: 10px;
+}
+
+section .facility-item-own .facility-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+section .facility-item-own .img-facility-wrapper {
+    width: 35px;
+    height: 35px;
+}
+
 section .catalog-container .catalog-wrapper .catalog-item,
 section .facility-form-content-item,
 section .facility-item {

@@ -4,16 +4,16 @@
         <div class="catalog-wrapper" style="flex-direction: column">
             <h1 class="main-header">{{name}} - Details</h1>
             
-            <div class="catalog-item" style="width: auto; height: auto; padding: 15px;">
+            <div class="catalog-item" style="height: auto; padding: 15px;">
                 <div>
                     <img src="{{imgURL}}" class="img-wrapper">
                 </div>
                 <span class="description-content">{{description}}</span>
                 <span class="price-content">Price per night: BGN {{price}}</span>
                 {{location}}
-                <ul class="facilities-wrapper">
+                <ul class="facilities-item-own">
                 {{#each facilities}}
-                    <li class="facilities-item">
+                    <li class="facility-item-own">
                         <span class="facility-label">{{label}}</span>
                         <img class="img-facility-wrapper" src="{{iconUrl}}"/>
                     </li>

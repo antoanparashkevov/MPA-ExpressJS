@@ -47,7 +47,7 @@ router.get('/:roomId/decorateRoom', async (req, res)=> {
     
     const facilities = await getAllFacilities();
     facilities.forEach(f=>{
-        if((room.facilities || []).some(id=> id.toString() === f._id.toString())) {
+        if((room.facilities || []).some(i=> i._id.toString() === f._id.toString())) {
             f.checked = true
         }
     })
