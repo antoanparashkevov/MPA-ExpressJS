@@ -12,12 +12,16 @@
                 <span class="price-content">Price per night: BGN {{price}}</span>
                 {{location}}
                 <ul class="facilities-item-own">
-                {{#each facilities}}
-                    <li class="facility-item-own">
-                        <span class="facility-label">{{label}}</span>
-                        <img class="img-facility-wrapper" src="{{iconUrl}}"/>
-                    </li>
-                {{/each}}
+                    {{#if facilities}}
+                        {{#each facilities}}
+                            <li class="facility-item-own">
+                                <span class="facility-label">{{label}}</span>
+                                <img class="img-facility-wrapper" src="{{iconUrl}}"/>
+                            </li>
+                        {{/each}}
+                    {{else}}
+                        <span style="background: #FFFFFF; width: 100%;">No facilities added!</span>
+                    {{/if}}
                 </ul>
             {{#if isOwner}}
                 <div class="item-nav">
@@ -32,10 +36,6 @@
                     </div>
                 </div>
                 {{/if}}
-            </div>
-            
-            <div>
-                <span>Listed by owner! TODO </span>
             </div>
         </div>
     {{/with}}
