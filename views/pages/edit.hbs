@@ -1,72 +1,84 @@
 <section>
-    <h1>Edit Accommodation</h1>
+    <h1 class="main-header">Edit Accommodation</h1>
     {{#if error}}
-        <div>
+        <div class="error-box">
             {{#each error.messages}}
-                 <div>{{this}}</div>     
+                <div class="error-field">{{this}}</div>
             {{/each}}
         </div>
     {{/if}}
-        <form action="/room/{{room._id}}/edit" method="post">
-            
-            {{#with room}}
-            <div>
-                <label for="name">
-                    <span>Name</span>
-                    <input 
+    
+    {{#with room}}
+    <div class="form-wrapper">
+        <form action="/room/{{_id}}/edit" method="post">
+            <div class="form-control-container">
+                <label for="name" class="form-label">
+                    Name                
+                </label>
+                <input 
+                        id="name"
                         type="text" 
                         name="name"
-                        value="{{name}}"           
+                        value="{{name}}"
+                        class="form-control"
                     >
-                </label>
             </div>
-            <div>
-                <label for="description">
-                    <span>Description</span>
-                    <textarea rows="5" name="description">{{description}}</textarea>
+            <div class="form-control-container">
+                <label for="description" class="form-label">
+                    Description
                 </label>
+                <textarea id="description" rows="5" name="description" class="form-control">{{description}}</textarea>
             </div>
-            <div>
-                <label for="location">
-                    <span>Location</span>
-                    <input 
+            <div class="form-control-container">
+                <label for="location" class="form-label">
+                    Location
+                </label>
+                <input 
+                        id="location"
                         type="text"
                         name="location"
                         value="{{location}}"
+                        class="form-control"
                     >
-                </label>
             </div>
-            <div>
-                <label for="price">
-                    <span>Price</span>
-                    <input 
+            <div class="form-control-container">
+                <label for="price" class="form-label">
+                    Price
+                </label>
+                <input 
+                        id="price"
                         type="number"
                         name="price"
                         value="{{price}}"
+                        class="form-control"
                     >
-                </label>
             </div>
-            <div>
-                <label for="beds">
-                    <span>Beds</span>
-                    <input 
+            <div class="form-control-container">
+                <label for="beds" class="form-label">
+                    Beds
+                </label>
+                <input 
+                        id="beds"
                         type="number" 
                         name="beds"
                         value="{{beds}}"
+                        class="form-control"
                     >
-                </label>
             </div>
-            <div>
-                <label for="imgUrl">
-                    <span>Image</span>
-                    <input 
+            <div class="form-control-container">
+                <label for="imgUrl" class="form-label">
+                    Image
+                </label>
+                <input 
+                        id="imgUrl"
                         type="text" 
                         name="imgUrl"
-                        value="{{imgUrl}}"
+                        value="{{imgURL}}"
+                        class="form-control"
                     >
-                </label>
             </div>
-            {{/with}}
-            <input type="submit" value="Update">
+            <button type="submit" class="btn btn-primary btn-submit">Update</button>
         </form>
+    </div>
+    {{/with}}
 </section>
