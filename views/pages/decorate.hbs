@@ -1,19 +1,31 @@
 <section>
-        <h1>{{room.name}} - Details</h1>
-        <main>
-            <div>
-                <img src="{{room.imgURL}}" alt="">
+    <div class="facilities-container">
+        <div class="facilities-wrapper">
+            <h1 class="main-header main-header-facility">{{room.name}} - Details</h1>
+            <div class="facility-form-content-item" style="height: auto; margin:0;">
+                    <div class="img-wrapper-facility">
+                        <img src="{{room.imgURL}}" alt="" class="img-wrapper">
+                    </div>
+                    <h1 class="main-header main-header-facility">Facilities: </h1>
+                    <div class="form-wrapper">
+                        <form action="/facility/{{room._id}}/decorateRoom" method="post">
+                            
+                        {{#each facilities}}
+                            <ul class="facilities-items">
+                                <li class="facility-item" style="height: auto; padding: 20px;">
+                                    <label class="label-facility">
+                                        {{label}}
+                                    </label>
+                                    <img src="{{iconUrl}}" class="img-wrapper" style="width: 35px;"/>
+                                    <input type="checkbox" name="{{_id}}" {{#if checked}}checked{{/if}} class="checkbox-facility">
+                                </li>
+                            </ul>
+                         {{/each}}
+                            
+                         <button class="btn btn-primary btn-submit">Confirm</button>
+                        </form>
+                    </div>
             </div>
-            <div>
-                <h1>Facilities: </h1>
-            <form action="/facility/{{room._id}}/decorateRoom" method="post">
-                {{#each facilities}}
-                    <ul>
-                        <li><label>{{label}}</label><img src="{{iconUrl}}"/><input type="checkbox" name="{{_id}}" {{#if checked}}checked{{/if}}></li>
-                    </ul>
-                {{/each}}
-                <button>Confirm</button>
-            </form>
-            </div>
-        </main>
+        </div>
+    </div>
 </section>
