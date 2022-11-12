@@ -1,31 +1,43 @@
 <section>
+    <div class="catalog-container">
     {{#with room}}
-        <h1>{{name}} - Details</h1>
-        <main>
-            <div>
-                <img src="{{imgURL}}" >
+        <div class="catalog-wrapper" style="flex-direction: column">
+            <h1 class="main-header">{{name}} - Details</h1>
+            
+            <div class="catalog-item" style="width: auto; height: auto; padding: 15px;">
+                <div>
+                    <img src="{{imgURL}}" class="img-wrapper">
+                </div>
+                <span class="description-content">{{description}}</span>
+                <span class="price-content">Price per night: BGN {{price}}</span>
+                {{location}}
+                <ul class="facilities-wrapper">
+                {{#each facilities}}
+                    <li class="facilities-item">
+                        <span class="facility-label">{{label}}</span>
+                        <img class="img-facility-wrapper" src="{{iconUrl}}"/>
+                    </li>
+                {{/each}}
+                </ul>
+            {{#if isOwner}}
+                <div class="item-nav">
+                    <div>
+                        <a href="/facility/{{_id}}/decorateRoom">Edit Facility</a>
+                    </div>
+                    <div>
+                        <a href="/room/{{_id}}/edit">Edit</a>
+                    </div>
+                    <div>
+                        <a href="/room/{{_id}}/delete">Delete</a>
+                    </div>
+                </div>
+                {{/if}}
             </div>
-            <p>{{description}}</p>
-            <p><strong>Price per night: BGN {{price}}</strong></p>
-            {{location}}
-            <ul>
-            {{#each facilities}}
-                <li>{{label}}</li>
-                <img src="{{iconUrl}}"/>
-            {{/each}}
-            </ul>
-        {{#if isOwner}}
+            
             <div>
-                <a href="/facility/{{_id}}/decorateRoom">Edit Facility</a>
+                <span>Listed by owner! TODO </span>
             </div>
-            <div>
-                 <a href="/room/{{_id}}/edit">Edit</a>
-            </div>
-            <div>
-                <a href="/room/{{_id}}/delete">Delete</a>
-            </div>
-            {{/if}}
-        </main>
-        <footer>Listed by owner TODO!!</footer>
+        </div>
     {{/with}}
+    </div>
 </section>

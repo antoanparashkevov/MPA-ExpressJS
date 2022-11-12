@@ -11,7 +11,7 @@ section {
     justify-content: center;
 }
 
-section>.main-header {
+section .main-header {
     font-weight: 700;
     font-size: 20px;
     text-overflow: ellipsis;
@@ -95,7 +95,7 @@ section .btn-submit:hover {
 }
 section .catalog-container {
     display: flex;
-    height: 300px;
+    height: auto;
     margin-bottom: 30px;
 }
 section .catalog-container .catalog-wrapper {
