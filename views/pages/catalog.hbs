@@ -14,7 +14,7 @@
     </main>
 
     {{#if roomsFromDB}}
-        <div class="catalog-container">
+        <div class="catalog-container" style="width: calc(100% - 82px); overflow: scroll">
         <ul class="catalog-wrapper">
             {{#each roomsFromDB}}
                 {{>roomCard}}

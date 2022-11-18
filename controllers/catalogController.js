@@ -5,7 +5,6 @@ const {getById, getAll} = require("../services/roomService")
 const router = require('express').Router()
 
 router.get('/', async (req,res)=>{
-    //TODO make search bar to works as before
     
     // const objQueries = {
     //     name: req.query.name || '',
