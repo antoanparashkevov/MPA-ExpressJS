@@ -91,8 +91,5 @@ module.exports = router;
 //TODO list
 /*
 * error boxes
-* search bar
 * owner name for each room (on details page)
-* scroll-y on catalog page
-* 
 * */
