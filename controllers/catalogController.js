@@ -2,6 +2,7 @@
 //const {getAll, getById} = require("../services/accomodationService");
 
 const {getById, getAll} = require("../services/roomService")
+const Room = require('../models/Room');
 const router = require('express').Router()
 
 router.get('/', async (req,res)=>{
@@ -33,9 +34,8 @@ router.get('/', async (req,res)=>{
 
 router.get('/:id',async (req,res)=>{
     const id = req.params.id;
-    const room = await getById(id); 
-    
-    if(req.user && req.user._id == room.owner) {
+    const room = await Room.findById(id).populate('owner','username').lean(); 
+    if(req.user && req.user._id === room.owner._id.toString()) {
         room.isOwner = true
     }
     

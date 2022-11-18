@@ -194,3 +194,7 @@ section .checkbox-facility {
     width: 30px;
     height: 25px;
 }
+
+section .item-nav {
+    padding: 15px;
+}

@@ -4,7 +4,7 @@
         <div class="catalog-wrapper" style="flex-direction: column">
             <h1 class="main-header">{{name}} - Details</h1>
             
-            <div class="catalog-item" style="height: auto; padding: 15px;">
+            <div class="catalog-item" style="height: auto; padding: 15px; min-width: 250px; width: 450px">
                 <div>
                     <img src="{{imgURL}}" class="img-wrapper">
                 </div>
@@ -23,7 +23,7 @@
                         <span style="background: #FFFFFF; width: 100%;">No facilities added!</span>
                     {{/if}}
                 </ul>
-            {{#if isOwner}}
+                {{#if isOwner}}
                 <div class="item-nav">
                     <div>
                         <a href="/facility/{{_id}}/decorateRoom">Edit Facility</a>
@@ -36,6 +36,7 @@
                     </div>
                 </div>
                 {{/if}}
+                <div>Owner: <span style="text-transform: capitalize">{{owner.username}}</span></div>
             </div>
         </div>
     {{/with}}

@@ -15,7 +15,7 @@ const createFacility =  function(label, iconUrl){
 
 const addFacilities = async function(roomId, facilityIds) {
     const room = await Room.findById(roomId).populate('facilities')
-    const facilities = await Facility.find({_id: { $in: facilityIds } })
+    const facilities = await Facility.find({_id: { $in: facilityIds } })//$in has embed array iterator so we can pass an array
     console.log('checked facilities >>>', facilities)
     
     //since we populate facilities array, now it's not full of ids, it contents real facility objects
