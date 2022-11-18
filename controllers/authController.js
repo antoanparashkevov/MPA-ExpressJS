@@ -87,9 +87,3 @@ function attachToken(req,res,data) {
 
 
 module.exports = router;
-
-//TODO list
-/*
-* error boxes
-* owner name for each room (on details page)
-* */
