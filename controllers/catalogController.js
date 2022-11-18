@@ -1,27 +1,33 @@
 //comment out the old service that uses the FS module
-// const {getAll, getById} = require("../services/accomodationService");
+//const {getAll, getById} = require("../services/accomodationService");
 
 const {getById, getAll} = require("../services/roomService")
 const router = require('express').Router()
 
 router.get('/', async (req,res)=>{
     
-    // const objQueries = {
-    //     name: req.query.name || '',
-    //     location: req.query.location || '',
-    //     fromPrice:+req.query.fromPrice || 1,
-    //     toPrice: +req.query.toPrice || 1000
-    //    
-    // }
+    //if we have a form with get method, the browser automatically set the input values as a query param to the url
+    const objQueries = {
+        name: req.query.name || '',
+        location: req.query.location || '',
+        fromPrice:+req.query.fromPrice || 1,
+        toPrice: +req.query.toPrice || 1000
+    }
     
-    const roomsFromDB = await getAll()
+    const roomsFromDB = await getAll(
+        objQueries.name,
+        objQueries.location,
+        objQueries.fromPrice,
+        objQueries.toPrice
+    )
+    
     res.render('pages/catalog',{
         title: 'Catalog page',
         roomsFromDB,
-        // name:objQueries.name,
-        // location:objQueries.location,
-        // fromPrice:objQueries.fromPrice,
-        // toPrice:objQueries.toPrice,
+        name:objQueries.name,
+        location:objQueries.location,
+        fromPrice:objQueries.fromPrice,
+        toPrice:objQueries.toPrice,
     })
 })
 

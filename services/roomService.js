@@ -1,7 +1,12 @@
 const Room = require('../models/Room')
 
-const getAll = () => {
-      return Room.find({}).lean()
+const getAll = (name,location,fromPrice,toPrice) => {
+    return Room.find(
+        {
+            name: {$regex: name, $options: 'i'},
+            location: { $regex: location, $options: 'i'},
+            price: {$gte: fromPrice, $lte: toPrice},
+        }).lean()
 }
 
 const getById = (id)=>{
