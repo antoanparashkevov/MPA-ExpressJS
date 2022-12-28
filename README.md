@@ -1,5 +1,5 @@
 # Accommodation Service
-Type `npm i` to install all dependencies locally, then `npm start` to start the development server provided by <strong>nodemon</stron>. Then go to http://localhost:8000
+Type `npm i` to install all dependencies locally, then `npm start` to start the development server provided by <strong>nodemon</strong>. Then go to http://localhost:8000
    
 # Table of Contents
 - <a href="#about">About</a>
