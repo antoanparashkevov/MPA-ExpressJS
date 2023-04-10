@@ -1,7 +1,7 @@
-@import url('./layout-header.css');
-@import url('./layout.css');
-@import url('./layout-section.css');
-@import url('./vars.css');
+@import url('layout-header.css');
+@import url('layout.css');
+@import url('layout-section.css');
+@import url('vars.css');
 * {
     position: relative;
     font-family: Verdana, serif;
