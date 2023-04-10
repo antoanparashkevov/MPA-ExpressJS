@@ -32,6 +32,9 @@ ul {
     min-width: 320px;
     width: 100%;
     background: #dce9ff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 #page-content>header { 
@@ -59,6 +62,9 @@ nav.main-nav>ul>li:hover {
     border: 1px solid #000000;
 }
 
+#page-content>main {
+    flex-grow: 1;
+}
     
 #page-content>main.main-content {
     padding: 25px 50px 50px 50px;
