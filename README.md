@@ -1,9 +1,11 @@
 # Accommodation Service
-Type `npm i` to install all dependencies locally, then `npm start` to start the development server provided by <strong>nodemon</strong>. Then go to http://localhost:8000
    
+You can visit the project from here: https://itcommunity.vercel.app
+
 # Table of Contents
 - <a href="#about">About</a>
 - <a href="#features">Features</a>
+- <a href="#how-to-run">How to run the app on your computer</a>
 - <a href="#project-structure">Project Structure</a>
 - <a href="#tools">Tools</a>
 - <a href="#application-pictures">Application Pictures</a>
@@ -48,6 +50,13 @@ Accommodation service provides quick and easy access to hotel listings in and ou
         - no access
     - Admin role
       - create facility/ies which can be used globally on each accommodation post
+      
+# <p id="how-to-run">How to run the app on your computer</p>
+
+1. You can download the project ZIP file or you can clone the repository directly.
+2. Open the project with IDE/Code Editor like VS Code or any of the Jetbrains product which supports the JavaScript syntax.
+5. Install all modules that are listed on `package.json` file and their dependencies with `npm install` or `yarn install`.
+6. Type `npm start` to run the project in the browser. It will start on `http://localhost:8000`, but you can change it to another URL if necessary. Type `y` to do it.
 
 # <p id="project-structure">Project Structure</p>
 - Server
