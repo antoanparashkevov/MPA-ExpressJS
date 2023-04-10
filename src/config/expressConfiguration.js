@@ -15,7 +15,7 @@ module.exports = (app)=>{
     app.set('view engine', '.hbs')
     app.set('views', './src/views');
     
-    app.use(express.urlencoded({extended:true}))
+    app.use(express.urlencoded({extended:true}))//adds body property to the request when we have a form data and we want to handle it
     app.use('/static', express.static('static'))
     
     //global middlewares
