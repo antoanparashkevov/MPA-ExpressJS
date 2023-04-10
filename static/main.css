@@ -62,7 +62,7 @@ nav.main-nav>ul>li:hover {
     border: 1px solid #000000;
 }
 
-#page-content>main {
+#page-content main {
     flex-grow: 1;
 }
     
