@@ -5,12 +5,19 @@ function parseError(error) {
     }
     //Errors from Mongoose
     if(error.name === 'ValidationError') {
-        // for(let [field, e] of Object.entries(error.errors)) {
-        //     result.fields[field] = field
-        //     result.messages.push(e.message)
+
+        // error.errors = {
+            // username: {
+                // message: 'ERROR MESSAGE FOR USERNAME FIELD'
+            // }
         // }
-    result.fields = Object.fromEntries(Object.keys(error.errors).map(k=>[k,k]))
+
+    result.fields = Object.fromEntries(
+        Object.keys(error.errors)
+        .map(key => [key,key])
+    )
     result.messages = Object.values(error.errors).map(obj=>obj.message)
+
      //Errors from express-validation   
     }else if(error.length > 0) {
         result.messages = error.map(e=>e.msg);
