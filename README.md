@@ -1,6 +1,6 @@
 # Accommodation Service
    
-You can visit the project from here: [[https://itcommunity.vercel.app]()](https://accommodationbulgaria.cyclic.app/)
+You can visit the project from here: https://accommodationbulgaria.cyclic.app/
 
 # Table of Contents
 - <a href="#about">About</a>
